@@ -45,8 +45,8 @@ function standard(){
 	tl.from(".ypy-you2", {y:-100, duration:.4}, "bars+=1")
 
 	tl.add("scale", "+=.3")
-	tl.to(".hero-all", {x:0, scale:.4, y:-45, duration:.3}, "scale")
-	tl.from([".footer-bg", ".t1"], { y:200, duration:.3}, "scale")
+	tl.to(".hero-all", {ease:"power1.out", x:0, scale:.4, y:-45, duration:.3}, "scale")
+	tl.from([".footer-bg", ".t1"], {ease:"power1.out",  y:200, duration:.3}, "scale")
 
 	tl.add("end", "+=2")
 	tl.set(".frame2", {opacity:1}, "end")
