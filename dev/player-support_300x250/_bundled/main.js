@@ -135,11 +135,43 @@ function olg() {
 exports.olg = olg;
 
 },{}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
 var _commonJsCommonJs = require('../../_common/js/common.js');
 
-(0, _commonJsCommonJs.b_320x50)();
+var tl = (0, _commonJsCommonJs.init)();
+console.log(tl);
+
+var TRANSFORMORIGIN = { x: 150, y: 195 };
+var rings = [{ id: ".ring1" }, { id: ".ring2" }, { id: ".ring3" }, { id: ".ring4", offsetX: -5 }, { id: ".ring5" }, { id: ".ypy-1" }, { id: ".ypy-2" }, { id: ".ypy-3" }];
+
+function transformOrigin(obj) {
+	console.log(obj);
+
+	var _ref = obj.to || TRANSFORMORIGIN;
+
+	var x = _ref.x;
+	var y = _ref.y;
+
+	var offsetX = obj.offsetX || 0;
+	var offsetY = obj.offsetY || 0;
+	tl.set(obj.id, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5 });
+}
+
+rings.map(function (a) {
+	return transformOrigin(a);
+});
+
+var rotate = 180;
+tl.add("arcs");
+tl.from(".ring1", { rotate: rotate, duration: 1 }, "arcs+=0");
+tl.from(".ring2", { rotate: -rotate, duration: 1 }, "arcs+=0.3");
+tl.from(".ring3", { rotate: rotate, duration: 1.3 }, "arcs+=0");
+tl.from(".ring4", { rotate: -rotate, duration: 1 }, "arcs+=0");
+tl.from(".ring5", { rotate: rotate, duration: 1.1 }, "arcs+=0.2");
+tl.from(".ypy-1", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs+=0.8");
+tl.from(".ypy-2", { opacity: 0, rotate: rotate, duration: .5 }, "arcs+=1.4");
+tl.from(".ypy-3", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs+=1.8");
 
 },{"../../_common/js/common.js":1}]},{},[4])
 
