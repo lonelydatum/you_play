@@ -23,7 +23,7 @@ a {
 body{
 	margin: 0;
 	padding: 0;
-	background-color: white;
+	// background-color: red;
 }
 
 
@@ -90,3 +90,8 @@ img{
 
 
 
+
+
+.pointer-events-none{
+	pointer-events: none;
+}

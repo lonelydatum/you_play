@@ -1,0 +1,44 @@
+@import '../../../_common/styles/b300x250.scss';
+
+
+#banner{
+	background-color: white;
+	background-color: #a56bff;
+}
+
+.hero-all{
+	@include pos-scale(-40, 0, .5);
+	// @include pos-scale(-0, -45, .4);
+}
+
+.frame2{
+	@include pos(0, 250);
+}
+
+.hero{	
+	// @include pos-scale(0, -50, .70);
+}
+
+.footer-bar{
+	width: 300px;
+	height: 90px;
+	background-color: #bfff00;
+	@include pos(0, 160);
+}
+
+.devices{
+	// @include pos-scale(12, -7, .46);
+}
+
+
+// .ypy-you1{
+// 	@include pos-scale(68, 14, .5);
+// }
+
+// .ypy-play{
+// 	@include pos-scale(105, 35, .5);
+// }
+
+// .ypy-you2{
+// 	@include pos-scale(301, 37, .5);
+// }

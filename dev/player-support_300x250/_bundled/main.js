@@ -30,52 +30,6 @@ function init() {
 	return tl;
 }
 
-function standard() {
-	var tl = init();
-
-	tl.add("bars");
-	tl.from(".frame1 .top.b2", { y: -250, duration: .5 }, "bars+=.3");
-	tl.from(".frame1 .top.b4", { y: -250, duration: .5 }, "bars+=.6");
-	tl.from(".frame1 .top.b5", { y: -250, duration: .5 }, "bars+=.9");
-	tl.from(".frame1 .top.b6", { y: -250, duration: .5 }, "bars+=.2");
-	tl.from(".frame1 .top.b7", { y: -250, duration: .5 }, "bars+=.8");
-	tl.from(".frame1 .top.b8", { y: -250, duration: .5 }, "bars+=.5");
-	tl.from(".frame1 .bottom.b1", { y: 250, duration: .5 }, "bars+=1");
-	tl.from(".frame1 .bottom.b3", { y: 250, duration: .5 }, "bars+=.5");
-
-	tl.from(".ypy-you1", { y: -100, duration: .4 }, "bars+=.5");
-	tl.from(".ypy-play", { y: -100, duration: .4 }, "bars+=.8");
-	tl.from(".ypy-you2", { y: -100, duration: .4 }, "bars+=1");
-
-	tl.add("scale", "+=.3");
-	tl.to(".hero-all", { ease: "power1.out", x: 0, scale: .4, y: -45, duration: .3 }, "scale");
-	tl.from([".footer-bg", ".t1"], { ease: "power1.out", y: 200, duration: .3 }, "scale");
-
-	tl.add("end", "+=2");
-	tl.set(".frame2", { opacity: 1 }, "end");
-	tl.to(".frame1", { y: -250, duration: .5 }, "end");
-	tl.to(".frame2", { y: 0, duration: .5 }, "end");
-
-	tl.add("end-bars");
-
-	tl.from(".frame2 .bottom.c1", { y: 250, duration: .5 }, "end-bars+=.3");
-	tl.from(".frame2 .top.c2", { y: -250, duration: .5 }, "end-bars+=.3");
-	tl.from(".frame2 .bottom.c3", { y: 250, duration: .5 }, "end-bars+=.3");
-	tl.from(".frame2 .top.c4", { y: -250, duration: .5 }, "end-bars+=.6");
-	tl.from(".frame2 .top.c5", { y: -250, duration: .5 }, "end-bars+=.9");
-	tl.from(".frame2 .top.c6", { y: -250, duration: .5 }, "end-bars+=.2");
-	tl.from(".frame2 .bottom.c7", { y: 250, duration: .5 }, "end-bars+=.8");
-	tl.from(".frame2 .top.c8", { y: -250, duration: .5 }, "end-bars+=.5");
-	tl.from(".frame2 .bottom.c9", { y: 250, duration: .5 }, "end-bars+=.8");
-
-	tl.from(".cta", { opacity: 0, duration: .5 }, "end-bars+=.3");
-
-	// tl.play("end")
-	tl.add((0, _proline.olg)(), "-=.3");
-
-	return tl;
-}
-
 function b_970x250() {
 	standard();
 }
@@ -97,9 +51,9 @@ function b_320x50() {}
 function b_728x90(text1) {}
 
 exports.init = init;
-exports.b_300x250 = b_300x250;
+exports.olg = _proline.olg;
 
-},{"./helpers/helpers.js":2,"./proline":3}],2:[function(require,module,exports){
+},{"./helpers/helpers.js":2,"./proline":4}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -112,6 +66,84 @@ function origin(el, x, y) {
 exports.origin = origin;
 
 },{}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _commonJs = require('./common.js');
+
+function start() {
+
+	var tl = (0, _commonJs.init)();
+	console.log(tl);
+
+	var TRANSFORMORIGIN = { x: 150, y: 195 };
+	var rings = [{ id: ".ring1_1" }, { id: ".ring1_2" }, { id: ".ring1_3" }, { id: ".ring1_4", offsetX: -5 }, { id: ".ring1_5" }, { id: ".ypy1-1" }, { id: ".ypy1-2" }, { id: ".ypy1-3" }, { id: ".o-1", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-2", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-3", to: { x: 150, y: 150 }, offsetY: -20 }];
+
+	function transformOrigin(obj) {
+		console.log(obj);
+
+		var _ref = obj.to || TRANSFORMORIGIN;
+
+		var x = _ref.x;
+		var y = _ref.y;
+
+		var offsetX = obj.offsetX || 0;
+		var offsetY = obj.offsetY || 0;
+		tl.set(obj.id, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
+	}
+
+	rings.map(function (a) {
+		return transformOrigin(a);
+	});
+
+	// return
+
+	var rotate = 180;
+	tl.add("arcs-in");
+	tl.from(".ring1_1", { rotate: rotate, duration: 1 }, "arcs-in+=0");
+	tl.from(".ring1_2", { rotate: -rotate, duration: 1 }, "arcs-in+=0.3");
+	tl.from(".ring1_3", { rotate: rotate, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring1_4", { rotate: -rotate, duration: 1 }, "arcs-in+=0");
+	tl.from(".ring1_5", { rotate: rotate, duration: 1.1 }, "arcs-in+=0.2");
+	tl.from(".ypy1-1", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs-in+=0.6");
+	tl.from(".ypy1-2", { opacity: 0, rotate: rotate, duration: .5 }, "arcs-in+=.8");
+	tl.from(".ypy1-3", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs-in+=1");
+
+	tl.add("shrink", "+=.6");
+	tl.to(".hero", { y: -50, scale: .70, duration: .5 }, "shrink");
+	tl.from(".footer-bar", { y: 250, duration: .5 }, "shrink");
+	tl.from(".t1", { y: 250, duration: .5 }, "shrink");
+
+	tl.to([".ring"], { scale: .4, y: "-=30", duration: .5 }, "shrink");
+	tl.to(".ypy1-1", { scale: .4, y: "-=28", rotate: 6, duration: .5 }, "shrink");
+	tl.to(".ypy1-2", { scale: .4, x: "+=43", y: "-=30", rotate: -40, duration: .5 }, "shrink");
+	tl.to(".ypy1-3", { scale: .4, x: "+=20", y: "-=50", rotate: 0, duration: .5 }, "shrink");
+
+	tl.to(".t1", { opacity: 0, duration: .3 }, "+=2.2");
+	tl.from(".t2", { opacity: 0, duration: .3 });
+
+	tl.add("end", "+=2");
+	tl.to(".frame1", { y: "-=250", duration: .5 }, "end");
+	tl.set(".frame2", { opacity: 1 }, "end");
+	tl.from(".frame2", { y: "+=250", duration: .5 }, "end");
+
+	tl.add("end-spin");
+	tl.from(".o-1", { opacity: 0, rotate: -270, duration: 1.7 }, "end-spin");
+	tl.from(".o-2", { opacity: 0, rotate: 270, duration: 1.3 }, "end-spin");
+	tl.from(".o-3", { opacity: 0, rotate: -270, duration: 1.1 }, "end-spin");
+
+	tl.from(".hash", { opacity: 0, duration: .3 }, "end-spin+=.3");
+	tl.from(".cta", { opacity: 0, duration: .3 }, "end-spin+=.3");
+	tl.add((0, _commonJs.olg)(), "-=.3");
+	// tl.play("end-spin")
+}
+
+exports.start = start;
+
+},{"./common.js":1}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -134,46 +166,14 @@ function olg() {
 
 exports.olg = olg;
 
-},{}],4:[function(require,module,exports){
-"use strict";
+},{}],5:[function(require,module,exports){
+'use strict';
 
-var _commonJsCommonJs = require('../../_common/js/common.js');
+var _commonJsPlayer_supportJs = require('../../_common/js/player_support.js');
 
-var tl = (0, _commonJsCommonJs.init)();
-console.log(tl);
+(0, _commonJsPlayer_supportJs.start)();
 
-var TRANSFORMORIGIN = { x: 150, y: 195 };
-var rings = [{ id: ".ring1" }, { id: ".ring2" }, { id: ".ring3" }, { id: ".ring4", offsetX: -5 }, { id: ".ring5" }, { id: ".ypy-1" }, { id: ".ypy-2" }, { id: ".ypy-3" }];
-
-function transformOrigin(obj) {
-	console.log(obj);
-
-	var _ref = obj.to || TRANSFORMORIGIN;
-
-	var x = _ref.x;
-	var y = _ref.y;
-
-	var offsetX = obj.offsetX || 0;
-	var offsetY = obj.offsetY || 0;
-	tl.set(obj.id, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5 });
-}
-
-rings.map(function (a) {
-	return transformOrigin(a);
-});
-
-var rotate = 180;
-tl.add("arcs");
-tl.from(".ring1", { rotate: rotate, duration: 1 }, "arcs+=0");
-tl.from(".ring2", { rotate: -rotate, duration: 1 }, "arcs+=0.3");
-tl.from(".ring3", { rotate: rotate, duration: 1.3 }, "arcs+=0");
-tl.from(".ring4", { rotate: -rotate, duration: 1 }, "arcs+=0");
-tl.from(".ring5", { rotate: rotate, duration: 1.1 }, "arcs+=0.2");
-tl.from(".ypy-1", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs+=0.8");
-tl.from(".ypy-2", { opacity: 0, rotate: rotate, duration: .5 }, "arcs+=1.4");
-tl.from(".ypy-3", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs+=1.8");
-
-},{"../../_common/js/common.js":1}]},{},[4])
+},{"../../_common/js/player_support.js":3}]},{},[5])
 
 
 //# sourceMappingURL=main.js.map

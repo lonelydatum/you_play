@@ -1,7 +1,7 @@
-import {b_300x250} from '../../_common/js/common.js'
+import {start} from '../../_common/js/ypy.js'
 
 
 
-b_300x250()
+start()
 
 

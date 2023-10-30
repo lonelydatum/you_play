@@ -30,8 +30,75 @@ function init() {
 	return tl;
 }
 
-function standard() {
-	var tl = init();
+function b_970x250() {
+	standard();
+}
+
+function b_160x600() {
+	standard();
+}
+
+function b_300x250() {
+	standard();
+}
+
+function b_300x600() {
+	standard();
+}
+
+function b_320x50() {}
+
+function b_728x90(text1) {}
+
+exports.init = init;
+exports.olg = _proline.olg;
+
+},{"./helpers/helpers.js":2,"./proline":3}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+function origin(el, x, y) {
+	TweenLite.set(el, { transformOrigin: x + "px " + y + "px", x: -x / 2 + "px", y: -y / 2 + "px", scale: .5 });
+}
+
+exports.origin = origin;
+
+},{}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.4,1.172 0.55,1.172 0.652,1.172 0.722,1.102 0.77,1.024 0.834,0.93 0.89,0.946 0.916,0.946 0.952,0.946 1,1 1,1 ");
+
+function olg() {
+    TweenLite.set("#olg", { opacity: 1 });
+    var tl = new TimelineMax();
+
+    tl.to("#bluewedge1", { duration: .5, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0);
+    tl.to("#redwedge1", { duration: .8, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0).from('#group-o', { duration: 1, y: 200, ease: "custom" }, 0).from('#group-l', { duration: 1, y: 200, ease: "custom" }, .1).from('#group-g', { duration: 1, y: 200, ease: "custom" }, .2).from('#group-o', { duration: .8, scale: .4, ease: "power1.out" }, .3).from('#group-l', { duration: .8, scale: .4, ease: "power1.out" }, .4).from('#group-g', { duration: .8, scale: .4, ease: "power1.out" }, .5).from('#letter-o', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '28pt 75pt' }, .9).from('#letter-l', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '55pt 75pt' }, 1).from('#letter-g', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '80pt 75pt' }, 1.1);
+
+    // tl.timeScale(2)
+
+    return tl;
+}
+
+exports.olg = olg;
+
+},{}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _commonJs = require('./common.js');
+
+function start() {
+	var tl = (0, _commonJs.init)();
 
 	tl.add("bars");
 	tl.from(".frame1 .top.b2", { y: -250, duration: .5 }, "bars+=.3");
@@ -71,77 +138,21 @@ function standard() {
 	tl.from(".cta", { opacity: 0, duration: .5 }, "end-bars+=.3");
 
 	// tl.play("end")
-	tl.add((0, _proline.olg)(), "-=.3");
+	tl.add((0, _commonJs.olg)(), "-=.3");
 
 	return tl;
 }
 
-function b_970x250() {
-	standard();
-}
+exports.start = start;
 
-function b_160x600() {
-	standard();
-}
-
-function b_300x250() {
-	standard();
-}
-
-function b_300x600() {
-	standard();
-}
-
-function b_320x50() {}
-
-function b_728x90(text1) {}
-
-exports.init = init;
-exports.b_300x250 = b_300x250;
-
-},{"./helpers/helpers.js":2,"./proline":3}],2:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-function origin(el, x, y) {
-	TweenLite.set(el, { transformOrigin: x + "px " + y + "px", x: -x / 2 + "px", y: -y / 2 + "px", scale: .5 });
-}
-
-exports.origin = origin;
-
-},{}],3:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.4,1.172 0.55,1.172 0.652,1.172 0.722,1.102 0.77,1.024 0.834,0.93 0.89,0.946 0.916,0.946 0.952,0.946 1,1 1,1 ");
-
-function olg() {
-    TweenLite.set("#olg", { opacity: 1 });
-    var tl = new TimelineMax();
-
-    tl.to("#bluewedge1", { duration: .5, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0);
-    tl.to("#redwedge1", { duration: .8, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0).from('#group-o', { duration: 1, y: 200, ease: "custom" }, 0).from('#group-l', { duration: 1, y: 200, ease: "custom" }, .1).from('#group-g', { duration: 1, y: 200, ease: "custom" }, .2).from('#group-o', { duration: .8, scale: .4, ease: "power1.out" }, .3).from('#group-l', { duration: .8, scale: .4, ease: "power1.out" }, .4).from('#group-g', { duration: .8, scale: .4, ease: "power1.out" }, .5).from('#letter-o', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '28pt 75pt' }, .9).from('#letter-l', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '55pt 75pt' }, 1).from('#letter-g', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '80pt 75pt' }, 1.1);
-
-    // tl.timeScale(2)
-
-    return tl;
-}
-
-exports.olg = olg;
-
-},{}],4:[function(require,module,exports){
+},{"./common.js":1}],5:[function(require,module,exports){
 'use strict';
 
-var _commonJsCommonJs = require('../../_common/js/common.js');
+var _commonJsYpyJs = require('../../_common/js/ypy.js');
 
-(0, _commonJsCommonJs.b_300x250)();
+(0, _commonJsYpyJs.start)();
 
-},{"../../_common/js/common.js":1}]},{},[4])
+},{"../../_common/js/ypy.js":4}]},{},[5])
 
 
 //# sourceMappingURL=main.js.map

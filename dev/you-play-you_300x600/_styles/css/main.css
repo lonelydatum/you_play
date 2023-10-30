@@ -78,6 +78,7 @@ table {
   transition: opacity 0.3s;
   pointer-events: none;
   border: 1px solid black;
+  padding-top: 20px;
 }
 
 #legalBtn {
@@ -134,7 +135,6 @@ a {
 body {
   margin: 0;
   padding: 0;
-  background-color: white;
 }
 
 #banner {
@@ -195,6 +195,10 @@ canvas, .text, .frame, .outline, img {
   -ms-transform-origin: 0 0;
   transform-origin: 0 0;
   image-rendering: -webkit-optimize-contrast;
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }
 
 #banner {

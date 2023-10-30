@@ -11,24 +11,22 @@
 }
 
 .frame2{
-	@include pos(0, 250);
+	background-color: #bfff00;
+	// @include pos(0, 250);
 }
 
-.hero{
-	
-	@include pos-scale(0, -6, .5);
+.hero{	
+	// @include pos-scale(0, -50, .70);
 }
 
+.footer-bar{
+	width: 300px;
+	height: 90px;
+	background-color: #bfff00;
+	@include pos(0, 160);
+}
 
+.ring, .ypy{
+	// @include pos-scale(0, 0, .4);
+}
 
-// .ypy-you1{
-// 	@include pos-scale(68, 14, .5);
-// }
-
-// .ypy-play{
-// 	@include pos-scale(105, 35, .5);
-// }
-
-// .ypy-you2{
-// 	@include pos-scale(301, 37, .5);
-// }
