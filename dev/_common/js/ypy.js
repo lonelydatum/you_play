@@ -1,7 +1,32 @@
 import {init, olg} from './common.js'
 
+
+function initYPY(){
+	const tl = new TimelineMax()
+	for(let i=1;i<11;i++){
+		tl.set(`.ypy-all .ypy_all_${i} img`, {y:-220})	
+	}
+}
+function ypyScroll(){
+	const tl = new TimelineMax()
+	tl.add("spin")
+	for(let i=1;i<11;i++){
+		const y = i*20
+		const duration = i/11 * 1.6
+		
+		tl.to(`.ypy-all .ypy_all_${i} img`, {ease:"back.inOut", y:((i-1)*-20)-2, duration}, "spin")	
+	}
+
+	return tl
+	
+
+
+	
+}
+
 function start(){	
 	const tl = init()	
+	initYPY()
 	
 	tl.add("bars")
 	tl.from(".frame1 .top.b2", {y:-250, duration:.5}, "bars+=.3")
@@ -42,11 +67,15 @@ function start(){
 	tl.from(".frame2 .bottom.c9", {y:250, duration:.5}, "end-bars+=.8")
 
 
+	tl.add("scroller")
+	tl.from(".url", {opacity:0, duration:.3}, "scroller")
+	tl.add(ypyScroll(), "scroller")
+	
+	tl.from(".cta", {opacity:0, duration:.3}, "+=.3")
 
-	tl.from(".cta", {opacity:0, duration:.5}, "end-bars+=.3")
 
-
-	// tl.play("end")
+	// tl.play("end-bars")
+	
 	tl.add(olg(), "-=.3")
 
 

@@ -97,8 +97,28 @@ Object.defineProperty(exports, "__esModule", {
 
 var _commonJs = require('./common.js');
 
+function initYPY() {
+	var tl = new TimelineMax();
+	for (var i = 1; i < 11; i++) {
+		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
+	}
+}
+function ypyScroll() {
+	var tl = new TimelineMax();
+	tl.add("spin");
+	for (var i = 1; i < 11; i++) {
+		var y = i * 20;
+		var duration = i / 11 * 1.6;
+
+		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
+	}
+
+	return tl;
+}
+
 function start() {
 	var tl = (0, _commonJs.init)();
+	initYPY();
 
 	tl.add("bars");
 	tl.from(".frame1 .top.b2", { y: -250, duration: .5 }, "bars+=.3");
@@ -137,9 +157,14 @@ function start() {
 	tl.from(".frame2 .top.c8", { y: -250, duration: .5 }, "end-bars+=.5");
 	tl.from(".frame2 .bottom.c9", { y: 250, duration: .5 }, "end-bars+=.8");
 
-	tl.from(".cta", { opacity: 0, duration: .5 }, "end-bars+=.3");
+	tl.add("scroller");
+	tl.from(".url", { opacity: 0, duration: .3 }, "scroller");
+	tl.add(ypyScroll(), "scroller");
 
-	// tl.play("end")
+	tl.from(".cta", { opacity: 0, duration: .3 }, "+=.3");
+
+	// tl.play("end-bars")
+
 	tl.add((0, _commonJs.olg)(), "-=.3");
 
 	return tl;
