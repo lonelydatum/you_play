@@ -115,12 +115,14 @@ function start() {
 	tl.from(".ypy-you2", { y: -100, duration: .4 }, "bars+=1");
 
 	tl.add("scale", "+=.3");
+	tl.to(".frame1 .top.b5", { opacity: .3, y: "-=30", duration: .5 }, "scale");
 	tl.to(".hero-all", { ease: "power1.out", x: 0, scale: .4, y: -45, duration: .3 }, "scale");
 	tl.from([".footer-bg", ".t1"], { ease: "power1.out", y: 200, duration: .3 }, "scale");
 
 	tl.add("end", "+=2");
 	tl.set(".frame2", { opacity: 1 }, "end");
 	tl.to(".frame1", { y: -250, duration: .5 }, "end");
+	tl.set(".olg", { opacity: 0 }, "end");
 	tl.to(".frame2", { y: 0, duration: .5 }, "end");
 
 	tl.add("end-bars");
