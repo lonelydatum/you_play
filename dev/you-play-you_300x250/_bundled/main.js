@@ -147,17 +147,17 @@ function start() {
 
 	tl.add("end-bars");
 
-	tl.from(".frame2 .bottom.c1", { y: 250, duration: .5 }, "end-bars+=.3");
+	tl.from(".frame2 .bottom.c1", { y: 250, duration: .5 }, "end-bars+=.1");
 	tl.from(".frame2 .top.c2", { y: -250, duration: .5 }, "end-bars+=.3");
 	tl.from(".frame2 .bottom.c3", { y: 250, duration: .5 }, "end-bars+=.3");
-	tl.from(".frame2 .top.c4", { y: -250, duration: .5 }, "end-bars+=.6");
-	tl.from(".frame2 .top.c5", { y: -250, duration: .5 }, "end-bars+=.9");
+	tl.from(".frame2 .top.c4", { y: -250, duration: .5 }, "end-bars+=.3");
+	tl.from(".frame2 .top.c5", { y: -250, duration: .5 }, "end-bars+=.2");
 	tl.from(".frame2 .top.c6", { y: -250, duration: .5 }, "end-bars+=.2");
-	tl.from(".frame2 .bottom.c7", { y: 250, duration: .5 }, "end-bars+=.8");
-	tl.from(".frame2 .top.c8", { y: -250, duration: .5 }, "end-bars+=.5");
-	tl.from(".frame2 .bottom.c9", { y: 250, duration: .5 }, "end-bars+=.8");
+	tl.from(".frame2 .bottom.c7", { y: 250, duration: .5 }, "end-bars+=.3");
+	tl.from(".frame2 .top.c8", { y: -250, duration: .5 }, "end-bars+=0");
+	tl.from(".frame2 .bottom.c9", { y: 250, duration: .5 }, "end-bars+=.1");
 
-	tl.add("scroller");
+	tl.add("scroller", "-=.5");
 	tl.from(".url", { opacity: 0, duration: .3 }, "scroller");
 	tl.add(ypyScroll(), "scroller");
 
