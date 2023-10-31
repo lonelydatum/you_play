@@ -1,8 +1,14 @@
 import {init, olg, olg_ypy} from './common.js'
 
 
-
-
+document.getElementById("legalContent").innerHTML = `
+© 2023 IGT.<br/>
+© 2023 Evolution. All Rights Reserved.<br/>
+<br/>
+Must be 19 years of age or older and a resident of Ontario, located in the province to play
+online casino games. Games and screens may not appear as shown. Odds vary by game.
+<br/>
+Terms and conditions apply.`
 const READ = {
 	t1: 2.3,
 	t2: 2.6

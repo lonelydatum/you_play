@@ -93,6 +93,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _commonJs = require('./common.js');
 
+document.getElementById("legalContent").innerHTML = "\n© 2023 IGT.<br/>\n© 2023 Evolution. All Rights Reserved.<br/>\n<br/>\nMust be 19 years of age or older and a resident of Ontario, located in the province to play\nonline casino games. Games and screens may not appear as shown. Odds vary by game.\n<br/>\nTerms and conditions apply.";
+
 function start() {
 	var tl = (0, _commonJs.init)();
 
