@@ -9,6 +9,7 @@ function start(){
 	initYPY()
 	
 	tl.add("bars")
+	
 	tl.from(".frame1 .top.b2", {y:-250, duration:.5}, "bars+=.3")
 	tl.from(".frame1 .top.b4", {y:-250, duration:.5}, "bars+=.6")
 	tl.from(".frame1 .top.b5", {y:-250, duration:.5}, "bars+=.9")

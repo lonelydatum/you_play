@@ -8,7 +8,7 @@
 
 .hero-all{
 	@include pos-scale(-40, 0, .5);
-	// @include pos-scale(-0, -45, .4);
+
 }
 
 .frame2{
@@ -16,7 +16,7 @@
 }
 
 .hero{	
-	// @include pos-scale(0, -50, .70);
+
 }
 
 .footer-bar{
@@ -27,18 +27,5 @@
 }
 
 .devices{
-	// @include pos-scale(12, -7, .46);
+
 }
-
-
-// .ypy-you1{
-// 	@include pos-scale(68, 14, .5);
-// }
-
-// .ypy-play{
-// 	@include pos-scale(105, 35, .5);
-// }
-
-// .ypy-you2{
-// 	@include pos-scale(301, 37, .5);
-// }

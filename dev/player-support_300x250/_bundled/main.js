@@ -85,8 +85,6 @@ function start() {
 	var rings = [{ id: ".ring1_1" }, { id: ".ring1_2" }, { id: ".ring1_3" }, { id: ".ring1_4", offsetX: -5 }, { id: ".ring1_5" }, { id: ".ypy1-1" }, { id: ".ypy1-2" }, { id: ".ypy1-3" }, { id: ".o-1", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-2", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-3", to: { x: 150, y: 150 }, offsetY: -20 }];
 
 	function transformOrigin(obj) {
-		console.log(obj);
-
 		var _ref = obj.to || TRANSFORMORIGIN;
 
 		var x = _ref.x;
@@ -100,8 +98,6 @@ function start() {
 	rings.map(function (a) {
 		return transformOrigin(a);
 	});
-
-	// return
 
 	var rotate = 180;
 	tl.add("arcs-in");
@@ -137,9 +133,8 @@ function start() {
 	tl.from(".o-2", { opacity: 0, rotate: 270, duration: 1.3 }, "end-spin");
 	tl.from(".o-3", { opacity: 0, rotate: -270, duration: 1.1 }, "end-spin");
 
-	tl.from(".hash", { opacity: 0, duration: .3 }, "end-spin+=.3");
-	tl.add((0, _ypy_fxJs.ypyScroll)(), "scroller");
-	tl.from(".cta", { opacity: 0, duration: .3 }, "end-spin+=.3");
+	tl.add((0, _ypy_fxJs.ypyScroll)(), "end-spin");
+	tl.from(".cta", { opacity: 0, duration: .3 }, "end-spin+=.7");
 
 	tl.add((0, _commonJs.olg)(), "-=.3");
 	// tl.play("end-spin")

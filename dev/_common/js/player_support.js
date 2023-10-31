@@ -19,12 +19,10 @@ function start(){
 		{id:".ypy1-3"},
 		{id:".o-1", to:{x:150, y:133}, offsetY:0},
 		{id:".o-2", to:{x:150, y:133}, offsetY:0},
-		{id:".o-3", to:{x:150, y:150}, offsetY:-20},
-		
-		]
+		{id:".o-3", to:{x:150, y:150}, offsetY:-20},		
+	]
 
-	function transformOrigin(obj){
-		console.log(obj);
+	function transformOrigin(obj){		
 		const {x, y } = obj.to || TRANSFORMORIGIN
 		const offsetX = obj.offsetX || 0 
 		const offsetY = obj.offsetY || 0 
@@ -32,8 +30,6 @@ function start(){
 	}
 
 	rings.map(a=>transformOrigin(a))
-
-	// return
 
 	const rotate = 180
 	tl.add("arcs-in")
@@ -46,16 +42,11 @@ function start(){
 	tl.from(".ypy1-2", {opacity:0, rotate:rotate, duration:.5}, "arcs-in+=.8")
 	tl.from(".ypy1-3", {opacity:0, rotate:-rotate, duration:.5}, "arcs-in+=1")
 
-
-
-
-
 	tl.add("shrink", "+=.6")
 	tl.to(".hero", {y:-50, scale:.70, duration:.5}, "shrink")
 	tl.from(".footer-bar", {y:250, duration:.5}, "shrink")
 	tl.from(".t1", {y:250, duration:.5}, "shrink")
 	
-
 	tl.to([".ring"], {scale:.4, y:"-=30", duration:.5}, "shrink")
 	tl.to(".ypy1-1", {scale:.4, y:"-=28", rotate:6, duration:.5}, "shrink")
 	tl.to(".ypy1-2", {scale:.4, x:"+=43", y:"-=30", rotate:-40, duration:.5}, "shrink")
@@ -73,16 +64,12 @@ function start(){
 	tl.from(".o-1", {opacity:0, rotate:-270, duration:1.7}, "end-spin")
 	tl.from(".o-2", {opacity:0, rotate:270, duration:1.3}, "end-spin")
 	tl.from(".o-3", {opacity:0, rotate:-270, duration:1.1}, "end-spin")
-
-	tl.from(".hash", {opacity:0, duration:.3}, "end-spin+=.3")
-	tl.add(ypyScroll(), "scroller")
-	tl.from(".cta", {opacity:0, duration:.3}, "end-spin+=.3")
+	
+	tl.add(ypyScroll(), "end-spin")
+	tl.from(".cta", {opacity:0, duration:.3}, "end-spin+=.7")
 
 	tl.add(olg(), "-=.3")
 	// tl.play("end-spin")
-
-
-
 }
 
 

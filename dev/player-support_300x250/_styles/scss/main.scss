@@ -7,26 +7,18 @@
 
 .hero-all{
 	@include pos-scale(-40, 0, .5);
-	// @include pos-scale(-0, -45, .4);
 }
 
 .frame2{
-	background-color: #bfff00;
-	// @include pos(0, 250);
+	background-color: #bfff00;	
 }
 
-.hero{	
-	// @include pos-scale(0, -50, .70);
-}
+
 
 .footer-bar{
 	width: 300px;
 	height: 90px;
 	background-color: #bfff00;
 	@include pos(0, 160);
-}
-
-.ring, .ypy{
-	// @include pos-scale(0, 0, .4);
 }
 
