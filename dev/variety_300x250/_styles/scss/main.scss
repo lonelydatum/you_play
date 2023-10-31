@@ -1,31 +1,14 @@
 @import '../../../_common/styles/b300x250.scss';
-
+@import '../../../_common/styles/ypy.scss';
 
 #banner{
 	background-color: white;
 	background-color: #a56bff;
 }
 
-.hero-all{
-	@include pos-scale(-40, 0, .5);
 
-}
 
-.frame2{
-	@include pos(0, 250);
-}
-
-.hero{	
-
-}
-
-.footer-bar{
-	width: 300px;
-	height: 90px;
-	background-color: #bfff00;
-	@include pos(0, 160);
-}
 
 .devices{
-
+	@include pos-scale(12, -7, .46);
 }

@@ -92,23 +92,29 @@ function olg() {
 exports.olg = olg;
 
 },{}],4:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
 	value: true
 });
 
 var _commonJs = require('./common.js');
 
+var _ypy_fxJs = require('./ypy_fx.js');
+
+var READ = {
+	t1: 2.3,
+	t2: 2.6
+};
+
 function start() {
 	var tl = (0, _commonJs.init)();
+	(0, _ypy_fxJs.initYPY)();
 
 	var TRANSFORMORIGIN = { x: 158, y: 154 };
 	var rings = [{ id: ".ring1", offsetY: -22, offsetX: 0 }, { id: ".ring2", offsetY: -22, offsetX: 0 }, { id: ".ring3", offsetY: -22, offsetX: 0 }, { id: ".ring4", offsetY: -22, offsetX: 0 }, { id: ".ring5", offsetY: -22, offsetX: 0 }, { id: ".ypy-1", offsetY: -22, offsetX: 0 }, { id: ".ypy-2", offsetY: -22, offsetX: 0 }, { id: ".ypy-3", offsetY: -22, offsetX: 0 }];
 
 	function transformOrigin(obj) {
-		console.log(obj);
-
 		var _ref = obj.to || TRANSFORMORIGIN;
 
 		var x = _ref.x;
@@ -116,7 +122,7 @@ function start() {
 
 		var offsetX = obj.offsetX || 0;
 		var offsetY = obj.offsetY || 0;
-		tl.set(obj.id, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
+		tl.set(obj.id, { transformOrigin: x * 2 + 'px ' + y * 2 + 'px', x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
 	}
 
 	rings.map(function (a) {
@@ -125,40 +131,72 @@ function start() {
 
 	var rotate = 180;
 	tl.add("arcs-in");
-	tl.from(".ring1", { rotate: rotate, duration: 2 }, "arcs-in+=0");
-	tl.from(".ring2", { rotate: -rotate, duration: 2 }, "arcs-in+=0");
-	tl.from(".ring3", { rotate: rotate, duration: 2 }, "arcs-in+=0");
-	tl.from(".ring4", { rotate: -rotate, duration: 2 }, "arcs-in+=0");
-	tl.from(".ring5", { rotate: rotate, duration: 2 }, "arcs-in+=0");
+	tl.from(".ring1", { rotate: rotate, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring2", { rotate: -rotate, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring3", { rotate: rotate, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring4", { rotate: -rotate, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring5", { rotate: rotate, duration: 1.3 }, "arcs-in+=0");
 
 	tl.from(".ypy-1", { opacity: 0, rotate: 120, duration: 1.5 }, "arcs-in+=0");
 	tl.from(".ypy-2", { opacity: 0, rotate: -120, duration: 1.5 }, "arcs-in+=0");
 	tl.from(".ypy-3", { opacity: 0, rotate: 120, duration: 1.5 }, "arcs-in+=0");
 
-	tl.add("t1", "+=1");
-	tl.to(".devices", { x: 12, y: -7, scale: .46, duration: .5 }, "tl");
-	tl.from(".t1", { opacity: 0, duration: .5 }, "tl+=.3");
+	// tl.to(".devices", {x:12, y:-7, scale:.46, duration:.5}, "tl")
+	tl.from(".t1", { opacity: 0, duration: .5 }, "arcs-in+=1");
 
-	tl.to(".t1", { opacity: 0, duration: .3 }, "+=3");
+	tl.to(".t1", { opacity: 0, duration: .3 }, '+=' + READ.t1);
 	tl.from(".t2", { opacity: 0, duration: .3 });
 
-	tl.to(".t2", { opacity: 0, duration: .3 }, "+=3");
+	tl.to(".t2", { opacity: 0, duration: .3 }, '+=' + READ.t2);
 
-	tl.from([".text_end", ".cta"], { opacity: 0, duration: .3 });
+	tl.add("end");
+	tl.to(".devices", { y: -21, scale: .46, duration: .3 }, "end");
+	tl.from(".url", { opacity: 0, duration: .3 }, "end");
+	tl.to([".ypy-1", ".ypy-2", ".ypy-3"], { opacity: 0, duration: .3 }, "end");
+	tl.add((0, _ypy_fxJs.ypyScroll)(), "end+=.3");
 
-	tl.add((0, _commonJs.olg)(), "-=.3");
+	tl.add("olg");
+	tl.from([".cta"], { opacity: 0, duration: .3 }, "olg");
+	tl.add((0, _commonJs.olg)(), "olg");
 }
 
 exports.start = start;
 
-},{"./common.js":1}],5:[function(require,module,exports){
+},{"./common.js":1,"./ypy_fx.js":5}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+function initYPY() {
+	var tl = new TimelineMax();
+	for (var i = 1; i < 11; i++) {
+		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
+	}
+}
+function ypyScroll() {
+	var tl = new TimelineMax();
+	tl.add("spin");
+	for (var i = 1; i < 11; i++) {
+		var y = i * 20;
+		var duration = i / 11 * 1.6;
+
+		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
+	}
+	return tl;
+}
+
+exports.initYPY = initYPY;
+exports.ypyScroll = ypyScroll;
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 var _commonJsVarietyJs = require('../../_common/js/variety.js');
 
 (0, _commonJsVarietyJs.start)();
 
-},{"../../_common/js/variety.js":4}]},{},[5])
+},{"../../_common/js/variety.js":4}]},{},[6])
 
 
 //# sourceMappingURL=main.js.map
