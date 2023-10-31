@@ -1,9 +1,10 @@
 import {init, olg} from './common.js'
+import {initYPY, ypyScroll} from './ypy_fx.js'
 
 function start(){
 
 	const tl = init()
-	console.log(tl);
+	initYPY()
 
 	const TRANSFORMORIGIN = {x:150, y:195}
 	const rings = [
@@ -74,7 +75,9 @@ function start(){
 	tl.from(".o-3", {opacity:0, rotate:-270, duration:1.1}, "end-spin")
 
 	tl.from(".hash", {opacity:0, duration:.3}, "end-spin+=.3")
+	tl.add(ypyScroll(), "scroller")
 	tl.from(".cta", {opacity:0, duration:.3}, "end-spin+=.3")
+
 	tl.add(olg(), "-=.3")
 	// tl.play("end-spin")
 

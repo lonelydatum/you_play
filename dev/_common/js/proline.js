@@ -3,7 +3,11 @@ CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.
 
 function olg(){
 	TweenLite.set("#olg", {opacity:1})	
-    const tl = new TimelineMax()
+    
+    
+    const tl = new TimelineMax({onStart(){
+        TweenLite.set(".olg-static", {opacity:0})  
+    }})
         
     tl.to("#bluewedge1", {duration:.5, ease: 'power1.inOut', scaleY:1, scale:1, x:0, y:0}, 0)
     tl.to("#redwedge1", {duration:.8, ease: 'power1.inOut', scaleY:1, scale:1, x:0, y:0}, 0)

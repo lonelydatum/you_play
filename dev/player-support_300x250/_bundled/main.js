@@ -66,18 +66,20 @@ function origin(el, x, y) {
 exports.origin = origin;
 
 },{}],3:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
 	value: true
 });
 
 var _commonJs = require('./common.js');
 
+var _ypy_fxJs = require('./ypy_fx.js');
+
 function start() {
 
 	var tl = (0, _commonJs.init)();
-	console.log(tl);
+	(0, _ypy_fxJs.initYPY)();
 
 	var TRANSFORMORIGIN = { x: 150, y: 195 };
 	var rings = [{ id: ".ring1_1" }, { id: ".ring1_2" }, { id: ".ring1_3" }, { id: ".ring1_4", offsetX: -5 }, { id: ".ring1_5" }, { id: ".ypy1-1" }, { id: ".ypy1-2" }, { id: ".ypy1-3" }, { id: ".o-1", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-2", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-3", to: { x: 150, y: 150 }, offsetY: -20 }];
@@ -92,7 +94,7 @@ function start() {
 
 		var offsetX = obj.offsetX || 0;
 		var offsetY = obj.offsetY || 0;
-		tl.set(obj.id, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
+		tl.set(obj.id, { transformOrigin: x * 2 + 'px ' + y * 2 + 'px', x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
 	}
 
 	rings.map(function (a) {
@@ -136,14 +138,16 @@ function start() {
 	tl.from(".o-3", { opacity: 0, rotate: -270, duration: 1.1 }, "end-spin");
 
 	tl.from(".hash", { opacity: 0, duration: .3 }, "end-spin+=.3");
+	tl.add((0, _ypy_fxJs.ypyScroll)(), "scroller");
 	tl.from(".cta", { opacity: 0, duration: .3 }, "end-spin+=.3");
+
 	tl.add((0, _commonJs.olg)(), "-=.3");
 	// tl.play("end-spin")
 }
 
 exports.start = start;
 
-},{"./common.js":1}],4:[function(require,module,exports){
+},{"./common.js":1,"./ypy_fx.js":5}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -154,7 +158,10 @@ CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.
 
 function olg() {
     TweenLite.set("#olg", { opacity: 1 });
-    var tl = new TimelineMax();
+
+    var tl = new TimelineMax({ onStart: function onStart() {
+            TweenLite.set(".olg-static", { opacity: 0 });
+        } });
 
     tl.to("#bluewedge1", { duration: .5, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0);
     tl.to("#redwedge1", { duration: .8, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0).from('#group-o', { duration: 1, y: 200, ease: "custom" }, 0).from('#group-l', { duration: 1, y: 200, ease: "custom" }, .1).from('#group-g', { duration: 1, y: 200, ease: "custom" }, .2).from('#group-o', { duration: .8, scale: .4, ease: "power1.out" }, .3).from('#group-l', { duration: .8, scale: .4, ease: "power1.out" }, .4).from('#group-g', { duration: .8, scale: .4, ease: "power1.out" }, .5).from('#letter-o', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '28pt 75pt' }, .9).from('#letter-l', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '55pt 75pt' }, 1).from('#letter-g', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '80pt 75pt' }, 1.1);
@@ -167,13 +174,40 @@ function olg() {
 exports.olg = olg;
 
 },{}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+function initYPY() {
+	var tl = new TimelineMax();
+	for (var i = 1; i < 11; i++) {
+		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
+	}
+}
+function ypyScroll() {
+	var tl = new TimelineMax();
+	tl.add("spin");
+	for (var i = 1; i < 11; i++) {
+		var y = i * 20;
+		var duration = i / 11 * 1.6;
+
+		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
+	}
+	return tl;
+}
+
+exports.initYPY = initYPY;
+exports.ypyScroll = ypyScroll;
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 var _commonJsPlayer_supportJs = require('../../_common/js/player_support.js');
 
 (0, _commonJsPlayer_supportJs.start)();
 
-},{"../../_common/js/player_support.js":3}]},{},[5])
+},{"../../_common/js/player_support.js":3}]},{},[6])
 
 
 //# sourceMappingURL=main.js.map

@@ -76,7 +76,10 @@ CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.
 
 function olg() {
     TweenLite.set("#olg", { opacity: 1 });
-    var tl = new TimelineMax();
+
+    var tl = new TimelineMax({ onStart: function onStart() {
+            TweenLite.set(".olg-static", { opacity: 0 });
+        } });
 
     tl.to("#bluewedge1", { duration: .5, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0);
     tl.to("#redwedge1", { duration: .8, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0).from('#group-o', { duration: 1, y: 200, ease: "custom" }, 0).from('#group-l', { duration: 1, y: 200, ease: "custom" }, .1).from('#group-g', { duration: 1, y: 200, ease: "custom" }, .2).from('#group-o', { duration: .8, scale: .4, ease: "power1.out" }, .3).from('#group-l', { duration: .8, scale: .4, ease: "power1.out" }, .4).from('#group-g', { duration: .8, scale: .4, ease: "power1.out" }, .5).from('#letter-o', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '28pt 75pt' }, .9).from('#letter-l', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '55pt 75pt' }, 1).from('#letter-g', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '80pt 75pt' }, 1.1);
@@ -89,36 +92,19 @@ function olg() {
 exports.olg = olg;
 
 },{}],4:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
 	value: true
 });
 
 var _commonJs = require('./common.js');
 
-function initYPY() {
-	var tl = new TimelineMax();
-	for (var i = 1; i < 11; i++) {
-		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
-	}
-}
-function ypyScroll() {
-	var tl = new TimelineMax();
-	tl.add("spin");
-	for (var i = 1; i < 11; i++) {
-		var y = i * 20;
-		var duration = i / 11 * 1.6;
-
-		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
-	}
-
-	return tl;
-}
+var _ypy_fxJs = require('./ypy_fx.js');
 
 function start() {
 	var tl = (0, _commonJs.init)();
-	initYPY();
+	(0, _ypy_fxJs.initYPY)();
 
 	tl.add("bars");
 	tl.from(".frame1 .top.b2", { y: -250, duration: .5 }, "bars+=.3");
@@ -159,7 +145,7 @@ function start() {
 
 	tl.add("scroller", "-=.5");
 	tl.from(".url", { opacity: 0, duration: .3 }, "scroller");
-	tl.add(ypyScroll(), "scroller");
+	tl.add((0, _ypy_fxJs.ypyScroll)(), "scroller");
 
 	tl.from(".cta", { opacity: 0, duration: .3 }, "+=.3");
 
@@ -172,14 +158,41 @@ function start() {
 
 exports.start = start;
 
-},{"./common.js":1}],5:[function(require,module,exports){
+},{"./common.js":1,"./ypy_fx.js":5}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+function initYPY() {
+	var tl = new TimelineMax();
+	for (var i = 1; i < 11; i++) {
+		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
+	}
+}
+function ypyScroll() {
+	var tl = new TimelineMax();
+	tl.add("spin");
+	for (var i = 1; i < 11; i++) {
+		var y = i * 20;
+		var duration = i / 11 * 1.6;
+
+		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
+	}
+	return tl;
+}
+
+exports.initYPY = initYPY;
+exports.ypyScroll = ypyScroll;
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 var _commonJsYpyJs = require('../../_common/js/ypy.js');
 
 (0, _commonJsYpyJs.start)();
 
-},{"../../_common/js/ypy.js":4}]},{},[5])
+},{"../../_common/js/ypy.js":4}]},{},[6])
 
 
 //# sourceMappingURL=main.js.map
