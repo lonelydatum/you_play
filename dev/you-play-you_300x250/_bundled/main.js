@@ -125,7 +125,7 @@ function start() {
 	tl.to(".hero-all", { ease: "power1.out", x: 0, scale: .4, y: -45, duration: .3 }, "scale");
 	tl.from([".footer-bg", ".t1"], { ease: "power1.out", y: 200, duration: .3 }, "scale");
 
-	tl.add("end", "+=2");
+	tl.add("end", "+=1.8");
 	tl.set(".frame2", { opacity: 1 }, "end");
 	tl.to(".frame1", { y: -250, duration: .5 }, "end");
 	tl.set(".olg", { opacity: 0 }, "end");
