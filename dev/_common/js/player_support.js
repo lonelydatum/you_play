@@ -1,7 +1,7 @@
 import {init, olg, olg_ypy} from './common.js'
 
-document.getElementById("legalContent").innerHTML = `© 2023 IGT.
-<br/>
+document.getElementById("legalContent").innerHTML = `
+© 2023 IGT.<br/>
 © 2023 Evolution. All Rights Reserved.<br/>
 © 2023 Light &amp; Wonder, Inc. All Rights Reserved.<br/>
 <br/>
@@ -63,7 +63,7 @@ function start(){
 	tl.to(".ypy1-3", {scale:.4, x:"+=20", y:"-=50", rotate:0, duration:.5}, "shrink")
 
 	tl.to(".t1", {opacity:0, duration:.3}, "+=2.2")
-	tl.from(".t2", {opacity:0, duration:.3})
+	tl.from([".t2", ".brand-logo"], {opacity:0, duration:.3})
 
 	tl.add("end", "+=2")
 	tl.to(".frame1", {y:"-=250", duration:.5}, "end")

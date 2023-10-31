@@ -67,7 +67,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _commonJs = require('./common.js');
 
-document.getElementById("legalContent").innerHTML = "© 2023 IGT.\n<br/>\n© 2023 Evolution. All Rights Reserved.<br/>\n© 2023 Light &amp; Wonder, Inc. All Rights Reserved.<br/>\n<br/>\nMust be 19 years of age or older and a resident of Ontario, located in the province to play\nonline casino games. Games and screens may not appear as shown. Odds vary by game. Terms and conditions apply.\n<br/>\n*Voted most trusted Online Casino by Ontario shoppers based on the 2023 Brandspark® Canadian Trust Study.";
+document.getElementById("legalContent").innerHTML = "\n© 2023 IGT.<br/>\n© 2023 Evolution. All Rights Reserved.<br/>\n© 2023 Light &amp; Wonder, Inc. All Rights Reserved.<br/>\n<br/>\nMust be 19 years of age or older and a resident of Ontario, located in the province to play\nonline casino games. Games and screens may not appear as shown. Odds vary by game. Terms and conditions apply.\n<br/>\n*Voted most trusted Online Casino by Ontario shoppers based on the 2023 Brandspark® Canadian Trust Study.";
 
 function start() {
 
@@ -113,7 +113,7 @@ function start() {
 	tl.to(".ypy1-3", { scale: .4, x: "+=20", y: "-=50", rotate: 0, duration: .5 }, "shrink");
 
 	tl.to(".t1", { opacity: 0, duration: .3 }, "+=2.2");
-	tl.from(".t2", { opacity: 0, duration: .3 });
+	tl.from([".t2", ".brand-logo"], { opacity: 0, duration: .3 });
 
 	tl.add("end", "+=2");
 	tl.to(".frame1", { y: "-=250", duration: .5 }, "end");
