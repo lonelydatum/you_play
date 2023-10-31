@@ -54,4 +54,4 @@ function b_728x90(text1){
 	
 }
 
-export { init, olg }
+export { init, olg, bannerSize }

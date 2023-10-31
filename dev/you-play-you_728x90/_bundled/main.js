@@ -52,6 +52,7 @@ function b_728x90(text1) {}
 
 exports.init = init;
 exports.olg = _proline.olg;
+exports.bannerSize = bannerSize;
 
 },{"./helpers/helpers.js":2,"./proline":3}],2:[function(require,module,exports){
 "use strict";
