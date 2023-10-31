@@ -9,6 +9,8 @@ var _proline = require("./proline");
 
 var _helpersHelpersJs = require("./helpers/helpers.js");
 
+var _ypy_fxJs = require('./ypy_fx.js');
+
 var banner = document.getElementById('banner');
 var bannerSize = { w: banner.offsetWidth, h: banner.offsetHeight };
 
@@ -30,31 +32,21 @@ function init() {
 	return tl;
 }
 
-function b_970x250() {
-	standard();
+function olg_ypy() {
+	var tl = new TimelineMax();
+	tl.add("done");
+	tl.add((0, _proline.olg)(), "done");
+	tl.add((0, _ypy_fxJs.ypyScroll)(), "done");
+	tl.from(".cta", { opacity: 0, duration: .3 }, "done+=.5");
+	return tl;
 }
-
-function b_160x600() {
-	standard();
-}
-
-function b_300x250() {
-	standard();
-}
-
-function b_300x600() {
-	standard();
-}
-
-function b_320x50() {}
-
-function b_728x90(text1) {}
 
 exports.init = init;
 exports.olg = _proline.olg;
 exports.bannerSize = bannerSize;
+exports.olg_ypy = olg_ypy;
 
-},{"./helpers/helpers.js":2,"./proline":3}],2:[function(require,module,exports){
+},{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":4}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -93,13 +85,44 @@ function olg() {
 exports.olg = olg;
 
 },{}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+function initYPY() {
+	var tl = new TimelineMax();
+	// tl.set(".ypy-all", {opacity:0})
+	for (var i = 1; i < 11; i++) {
+		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
+	}
+}
+function ypyScroll() {
+	var tl = new TimelineMax();
+	// tl.set(".ypy-all", {opacity:0})
+	tl.add("spin");
+	for (var i = 1; i < 11; i++) {
+		var y = i * 20;
+		var duration = i / 11 * 1.6;
+
+		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
+	}
+	return tl;
+}
+
+initYPY();
+
+exports.initYPY = initYPY;
+exports.ypyScroll = ypyScroll;
+
+},{}],5:[function(require,module,exports){
 'use strict';
 
 var _commonJsCommonJs = require('../../_common/js/common.js');
 
 (0, _commonJsCommonJs.b_320x50)();
 
-},{"../../_common/js/common.js":1}]},{},[4])
+},{"../../_common/js/common.js":1}]},{},[5])
 
 
 //# sourceMappingURL=main.js.map

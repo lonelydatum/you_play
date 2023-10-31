@@ -9,6 +9,8 @@ var _proline = require("./proline");
 
 var _helpersHelpersJs = require("./helpers/helpers.js");
 
+var _ypy_fxJs = require('./ypy_fx.js');
+
 var banner = document.getElementById('banner');
 var bannerSize = { w: banner.offsetWidth, h: banner.offsetHeight };
 
@@ -30,31 +32,21 @@ function init() {
 	return tl;
 }
 
-function b_970x250() {
-	standard();
+function olg_ypy() {
+	var tl = new TimelineMax();
+	tl.add("done");
+	tl.add((0, _proline.olg)(), "done");
+	tl.add((0, _ypy_fxJs.ypyScroll)(), "done");
+	tl.from(".cta", { opacity: 0, duration: .3 }, "done+=.5");
+	return tl;
 }
-
-function b_160x600() {
-	standard();
-}
-
-function b_300x250() {
-	standard();
-}
-
-function b_300x600() {
-	standard();
-}
-
-function b_320x50() {}
-
-function b_728x90(text1) {}
 
 exports.init = init;
 exports.olg = _proline.olg;
 exports.bannerSize = bannerSize;
+exports.olg_ypy = olg_ypy;
 
-},{"./helpers/helpers.js":2,"./proline":3}],2:[function(require,module,exports){
+},{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":5}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -93,19 +85,16 @@ function olg() {
 exports.olg = olg;
 
 },{}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
 var _commonJs = require('./common.js');
 
-var _ypy_fxJs = require('./ypy_fx.js');
-
 function start() {
 	var tl = (0, _commonJs.init)();
-	(0, _ypy_fxJs.initYPY)();
 
 	tl.add("bars");
 
@@ -130,7 +119,7 @@ function start() {
 	tl.add("end", "+=1.8");
 	tl.set(".frame2", { opacity: 1 }, "end");
 	tl.to(".frame1", { y: -250, duration: .5 }, "end");
-	tl.set(".olg", { opacity: 0 }, "end");
+
 	tl.to(".frame2", { y: 0, duration: .5 }, "end");
 
 	tl.add("end-bars");
@@ -147,20 +136,15 @@ function start() {
 
 	tl.add("scroller", "-=.5");
 	tl.from(".url", { opacity: 0, duration: .3 }, "scroller");
-	tl.add((0, _ypy_fxJs.ypyScroll)(), "scroller");
 
-	tl.from(".cta", { opacity: 0, duration: .3 }, "+=.3");
-
-	// tl.play("end-bars")
-
-	tl.add((0, _commonJs.olg)(), "-=.3");
+	tl.add((0, _commonJs.olg_ypy)(), "+=.3");
 
 	return tl;
 }
 
 exports.start = start;
 
-},{"./common.js":1,"./ypy_fx.js":5}],5:[function(require,module,exports){
+},{"./common.js":1}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -168,12 +152,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 function initYPY() {
 	var tl = new TimelineMax();
+	// tl.set(".ypy-all", {opacity:0})
 	for (var i = 1; i < 11; i++) {
 		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
 	}
 }
 function ypyScroll() {
 	var tl = new TimelineMax();
+	// tl.set(".ypy-all", {opacity:0})
 	tl.add("spin");
 	for (var i = 1; i < 11; i++) {
 		var y = i * 20;
@@ -183,6 +169,8 @@ function ypyScroll() {
 	}
 	return tl;
 }
+
+initYPY();
 
 exports.initYPY = initYPY;
 exports.ypyScroll = ypyScroll;

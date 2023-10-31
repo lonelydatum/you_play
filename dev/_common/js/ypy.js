@@ -1,12 +1,9 @@
-import {init, olg} from './common.js'
-import {initYPY, ypyScroll} from './ypy_fx.js'
-
-
+import {init, olg, olg_ypy} from './common.js'
 
 
 function start(){	
 	const tl = init()	
-	initYPY()
+	
 	
 	tl.add("bars")
 	
@@ -31,7 +28,7 @@ function start(){
 	tl.add("end", "+=1.8")
 	tl.set(".frame2", {opacity:1}, "end")
 	tl.to(".frame1", { y:-250, duration:.5}, "end")
-	tl.set(".olg", { opacity:0}, "end")
+	
 	tl.to(".frame2", { y:0, duration:.5}, "end")
 	
 	tl.add("end-bars")
@@ -50,14 +47,8 @@ function start(){
 
 	tl.add("scroller", "-=.5")
 	tl.from(".url", {opacity:0, duration:.3}, "scroller")
-	tl.add(ypyScroll(), "scroller")
 	
-	tl.from(".cta", {opacity:0, duration:.3}, "+=.3")
-
-
-	// tl.play("end-bars")
-	
-	tl.add(olg(), "-=.3")
+	tl.add(olg_ypy(), "+=.3")
 
 
 

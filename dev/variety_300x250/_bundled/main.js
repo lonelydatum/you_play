@@ -9,6 +9,8 @@ var _proline = require("./proline");
 
 var _helpersHelpersJs = require("./helpers/helpers.js");
 
+var _ypy_fxJs = require('./ypy_fx.js');
+
 var banner = document.getElementById('banner');
 var bannerSize = { w: banner.offsetWidth, h: banner.offsetHeight };
 
@@ -30,31 +32,21 @@ function init() {
 	return tl;
 }
 
-function b_970x250() {
-	standard();
+function olg_ypy() {
+	var tl = new TimelineMax();
+	tl.add("done");
+	tl.add((0, _proline.olg)(), "done");
+	tl.add((0, _ypy_fxJs.ypyScroll)(), "done");
+	tl.from(".cta", { opacity: 0, duration: .3 }, "done+=.5");
+	return tl;
 }
-
-function b_160x600() {
-	standard();
-}
-
-function b_300x250() {
-	standard();
-}
-
-function b_300x600() {
-	standard();
-}
-
-function b_320x50() {}
-
-function b_728x90(text1) {}
 
 exports.init = init;
 exports.olg = _proline.olg;
 exports.bannerSize = bannerSize;
+exports.olg_ypy = olg_ypy;
 
-},{"./helpers/helpers.js":2,"./proline":3}],2:[function(require,module,exports){
+},{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":5}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -93,15 +85,13 @@ function olg() {
 exports.olg = olg;
 
 },{}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
 var _commonJs = require('./common.js');
-
-var _ypy_fxJs = require('./ypy_fx.js');
 
 var READ = {
 	t1: 2.3,
@@ -110,7 +100,6 @@ var READ = {
 
 function start() {
 	var tl = (0, _commonJs.init)();
-	(0, _ypy_fxJs.initYPY)();
 
 	var TRANSFORMORIGIN = { x: 158, y: 154 };
 	var rings = [{ id: ".ring1", offsetY: -22, offsetX: 0 }, { id: ".ring2", offsetY: -22, offsetX: 0 }, { id: ".ring3", offsetY: -22, offsetX: 0 }, { id: ".ring4", offsetY: -22, offsetX: 0 }, { id: ".ring5", offsetY: -22, offsetX: 0 }, { id: ".ypy-1", offsetY: -22, offsetX: 0 }, { id: ".ypy-2", offsetY: -22, offsetX: 0 }, { id: ".ypy-3", offsetY: -22, offsetX: 0 }];
@@ -123,7 +112,7 @@ function start() {
 
 		var offsetX = obj.offsetX || 0;
 		var offsetY = obj.offsetY || 0;
-		tl.set(obj.id, { transformOrigin: x * 2 + 'px ' + y * 2 + 'px', x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
+		tl.set(obj.id, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
 	}
 
 	rings.map(function (a) {
@@ -145,25 +134,22 @@ function start() {
 	// tl.to(".devices", {x:12, y:-7, scale:.46, duration:.5}, "tl")
 	tl.from(".t1", { opacity: 0, duration: .5 }, "arcs-in+=1");
 
-	tl.to(".t1", { opacity: 0, duration: .3 }, '+=' + READ.t1);
+	tl.to(".t1", { opacity: 0, duration: .3 }, "+=" + READ.t1);
 	tl.from(".t2", { opacity: 0, duration: .3 });
 
-	tl.to(".t2", { opacity: 0, duration: .3 }, '+=' + READ.t2);
+	tl.to(".t2", { opacity: 0, duration: .3 }, "+=" + READ.t2);
 
 	tl.add("end");
 	tl.to(".devices", { y: -21, scale: .46, duration: .3 }, "end");
 	tl.from(".url", { opacity: 0, duration: .3 }, "end");
 	tl.to([".ypy-1", ".ypy-2", ".ypy-3"], { opacity: 0, duration: .3 }, "end");
-	tl.add((0, _ypy_fxJs.ypyScroll)(), "end+=.3");
 
-	tl.add("olg");
-	tl.from([".cta"], { opacity: 0, duration: .3 }, "olg");
-	tl.add((0, _commonJs.olg)(), "olg");
+	tl.add((0, _commonJs.olg_ypy)(), "+=.3");
 }
 
 exports.start = start;
 
-},{"./common.js":1,"./ypy_fx.js":5}],5:[function(require,module,exports){
+},{"./common.js":1}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -171,12 +157,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 function initYPY() {
 	var tl = new TimelineMax();
+	// tl.set(".ypy-all", {opacity:0})
 	for (var i = 1; i < 11; i++) {
 		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
 	}
 }
 function ypyScroll() {
 	var tl = new TimelineMax();
+	// tl.set(".ypy-all", {opacity:0})
 	tl.add("spin");
 	for (var i = 1; i < 11; i++) {
 		var y = i * 20;
@@ -186,6 +174,8 @@ function ypyScroll() {
 	}
 	return tl;
 }
+
+initYPY();
 
 exports.initYPY = initYPY;
 exports.ypyScroll = ypyScroll;

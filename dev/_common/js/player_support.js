@@ -1,10 +1,20 @@
-import {init, olg} from './common.js'
-import {initYPY, ypyScroll} from './ypy_fx.js'
+import {init, olg, olg_ypy} from './common.js'
+
+document.getElementById("legalContent").innerHTML = `© 2023 IGT.
+<br/>
+© 2023 Evolution. All Rights Reserved.<br/>
+© 2023 Light &amp; Wonder, Inc. All Rights Reserved.<br/>
+<br/>
+Must be 19 years of age or older and a resident of Ontario, located in the province to play
+online casino games. Games and screens may not appear as shown. Odds vary by game. Terms and conditions apply.
+<br/>
+*Voted most trusted Online Casino by Ontario shoppers based on the 2023 Brandspark® Canadian Trust Study.`
+
 
 function start(){
 
 	const tl = init()
-	initYPY()
+	
 
 	const TRANSFORMORIGIN = {x:150, y:195}
 	const rings = [
@@ -65,11 +75,10 @@ function start(){
 	tl.from(".o-2", {opacity:0, rotate:270, duration:1.3}, "end-spin")
 	tl.from(".o-3", {opacity:0, rotate:-270, duration:1.1}, "end-spin")
 	
-	tl.add(ypyScroll(), "end-spin")
-	tl.from(".cta", {opacity:0, duration:.3}, "end-spin+=.7")
-
-	tl.add(olg(), "-=.3")
-	// tl.play("end-spin")
+	
+	
+	tl.add(olg_ypy(), "-=1.5")
+	
 }
 
 

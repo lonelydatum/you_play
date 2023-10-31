@@ -1,7 +1,7 @@
-import {init, olg} from './common.js'
+import {init, olg, olg_ypy} from './common.js'
 
 
-import {initYPY, ypyScroll} from './ypy_fx.js'
+
 
 const READ = {
 	t1: 2.3,
@@ -10,7 +10,7 @@ const READ = {
 
 function start(){
 	const tl = init()
-	initYPY()
+
 
 	const TRANSFORMORIGIN = {x:158, y:154}
 	const rings = [
@@ -62,12 +62,10 @@ function start(){
 	tl.to(".devices", {y:-21, scale:.46, duration:.3}, "end")
 	tl.from(".url", {opacity:0, duration:.3}, "end")
 	tl.to([".ypy-1", ".ypy-2", ".ypy-3"], {opacity:0, duration:.3}, "end")
-	tl.add(ypyScroll(), "end+=.3")
+	
 
 
-	tl.add("olg")
-	tl.from([".cta"], {opacity:0, duration:.3}, "olg")	
-	tl.add(olg(), "olg")
+	tl.add(olg_ypy(), "+=.3")
 
 
 }

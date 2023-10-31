@@ -9,6 +9,8 @@ var _proline = require("./proline");
 
 var _helpersHelpersJs = require("./helpers/helpers.js");
 
+var _ypy_fxJs = require('./ypy_fx.js');
+
 var banner = document.getElementById('banner');
 var bannerSize = { w: banner.offsetWidth, h: banner.offsetHeight };
 
@@ -30,31 +32,21 @@ function init() {
 	return tl;
 }
 
-function b_970x250() {
-	standard();
+function olg_ypy() {
+	var tl = new TimelineMax();
+	tl.add("done");
+	tl.add((0, _proline.olg)(), "done");
+	tl.add((0, _ypy_fxJs.ypyScroll)(), "done");
+	tl.from(".cta", { opacity: 0, duration: .3 }, "done+=.5");
+	return tl;
 }
-
-function b_160x600() {
-	standard();
-}
-
-function b_300x250() {
-	standard();
-}
-
-function b_300x600() {
-	standard();
-}
-
-function b_320x50() {}
-
-function b_728x90(text1) {}
 
 exports.init = init;
 exports.olg = _proline.olg;
 exports.bannerSize = bannerSize;
+exports.olg_ypy = olg_ypy;
 
-},{"./helpers/helpers.js":2,"./proline":4}],2:[function(require,module,exports){
+},{"./helpers/helpers.js":2,"./proline":4,"./ypy_fx.js":5}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -67,20 +59,19 @@ function origin(el, x, y) {
 exports.origin = origin;
 
 },{}],3:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
 var _commonJs = require('./common.js');
 
-var _ypy_fxJs = require('./ypy_fx.js');
+document.getElementById("legalContent").innerHTML = "© 2023 IGT.\n<br/>\n© 2023 Evolution. All Rights Reserved.<br/>\n© 2023 Light &amp; Wonder, Inc. All Rights Reserved.<br/>\n<br/>\nMust be 19 years of age or older and a resident of Ontario, located in the province to play\nonline casino games. Games and screens may not appear as shown. Odds vary by game. Terms and conditions apply.\n<br/>\n*Voted most trusted Online Casino by Ontario shoppers based on the 2023 Brandspark® Canadian Trust Study.";
 
 function start() {
 
 	var tl = (0, _commonJs.init)();
-	(0, _ypy_fxJs.initYPY)();
 
 	var TRANSFORMORIGIN = { x: 150, y: 195 };
 	var rings = [{ id: ".ring1_1" }, { id: ".ring1_2" }, { id: ".ring1_3" }, { id: ".ring1_4", offsetX: -5 }, { id: ".ring1_5" }, { id: ".ypy1-1" }, { id: ".ypy1-2" }, { id: ".ypy1-3" }, { id: ".o-1", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-2", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-3", to: { x: 150, y: 150 }, offsetY: -20 }];
@@ -93,7 +84,7 @@ function start() {
 
 		var offsetX = obj.offsetX || 0;
 		var offsetY = obj.offsetY || 0;
-		tl.set(obj.id, { transformOrigin: x * 2 + 'px ' + y * 2 + 'px', x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
+		tl.set(obj.id, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
 	}
 
 	rings.map(function (a) {
@@ -134,16 +125,12 @@ function start() {
 	tl.from(".o-2", { opacity: 0, rotate: 270, duration: 1.3 }, "end-spin");
 	tl.from(".o-3", { opacity: 0, rotate: -270, duration: 1.1 }, "end-spin");
 
-	tl.add((0, _ypy_fxJs.ypyScroll)(), "end-spin");
-	tl.from(".cta", { opacity: 0, duration: .3 }, "end-spin+=.7");
-
-	tl.add((0, _commonJs.olg)(), "-=.3");
-	// tl.play("end-spin")
+	tl.add((0, _commonJs.olg_ypy)(), "-=1.5");
 }
 
 exports.start = start;
 
-},{"./common.js":1,"./ypy_fx.js":5}],4:[function(require,module,exports){
+},{"./common.js":1}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -177,12 +164,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 function initYPY() {
 	var tl = new TimelineMax();
+	// tl.set(".ypy-all", {opacity:0})
 	for (var i = 1; i < 11; i++) {
 		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
 	}
 }
 function ypyScroll() {
 	var tl = new TimelineMax();
+	// tl.set(".ypy-all", {opacity:0})
 	tl.add("spin");
 	for (var i = 1; i < 11; i++) {
 		var y = i * 20;
@@ -192,6 +181,8 @@ function ypyScroll() {
 	}
 	return tl;
 }
+
+initYPY();
 
 exports.initYPY = initYPY;
 exports.ypyScroll = ypyScroll;

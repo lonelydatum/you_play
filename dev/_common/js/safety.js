@@ -1,7 +1,17 @@
-import {init, olg, bannerSize} from './common.js'
+import {init, olg, bannerSize, olg_ypy} from './common.js'
 
 
-import {initYPY, ypyScroll} from './ypy_fx.js'
+document.getElementById("legalContent").innerHTML = `© 2023 IGT.
+<br/>
+© 2023 Evolution. All Rights Reserved.<br/>
+<br/>
+Must be 19 years of age or older and a resident of Ontario, located in the province to play
+online casino games. Games and screens may not appear as shown. Odds vary by game. Terms
+and conditions apply.<br/>
+<br/>
+*Voted most trusted Online Casino by Ontario shoppers based on the 2023 Brandspark®
+<br/>
+Canadian Trust Study.`
 
 const READ = {
 	t1: 2.3,
@@ -27,12 +37,12 @@ function rain(){
 
 function start(){
 	const tl = init()
-	initYPY()
+	
 
 	rain()
 
 	tl.add("start", 3)
-	tl.from(".bg", {y:300, duration:1}, "start")
+	tl.from(".bg", {y:300, duration:.6}, "start")
 
 	tl.from(".t1", {opacity:0, duration:.3})
 	tl.to(".t1", {opacity:0, duration:.3}, `+=${READ.t1}`)
@@ -47,9 +57,7 @@ function start(){
 
 	tl.from([".url", ".buttons"], {opacity:0, duration:.3})
 
-	tl.add(ypyScroll())
-	tl.from(".cta", {opacity:0, duration:1})
-	tl.add(olg(), "olg")
+	tl.add(olg_ypy(), "+=.3")
 
 
 }

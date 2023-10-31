@@ -1,5 +1,6 @@
 import {olg} from "./proline"
 import {origin} from "./helpers/helpers.js"
+import {initYPY, ypyScroll} from './ypy_fx.js'
 const banner = document.getElementById('banner')
 const bannerSize = {w:banner.offsetWidth, h:banner.offsetHeight}
 
@@ -25,33 +26,13 @@ function init(){
 
 
 
-
-
-function b_970x250(){
-	standard()
+function olg_ypy(){
+	const tl = new TimelineMax()
+	tl.add("done")
+	tl.add(olg(), "done")
+	tl.add(ypyScroll(), "done")
+	tl.from(".cta", {opacity:0, duration:.3}, "done+=.5")
+	return tl
 }
 
-function b_160x600(){
-	standard()
-}
-
-function b_300x250(){		
-	standard()
-}
-
-function b_300x600(){		
-	standard()
-}
-
-
-function b_320x50(){
-	
-
-
-}
-
-function b_728x90(text1){
-	
-}
-
-export { init, olg, bannerSize }
+export { init, olg, bannerSize, olg_ypy }
