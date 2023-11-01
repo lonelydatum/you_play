@@ -32,7 +32,7 @@ function olg_ypy(){
 	tl.add("done")
 	tl.add(olg(), "done")
 	tl.add(ypyScroll(), "done")
-	tl.from(".cta", {opacity:0, duration:.3}, "done+=.7")
+	tl.from([".cta", ".legal"], {opacity:0, duration:.3}, "done+=.7")
 	return tl
 }
 

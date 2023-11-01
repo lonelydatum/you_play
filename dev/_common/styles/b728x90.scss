@@ -19,7 +19,13 @@
 
 
 #legalBtn{	
-	@include pos(650, 45);	
+	@include pos(650, 0);	
 	width: 80px;
 
+}
+
+
+#legalContent{
+	padding: 0;
+	padding-left:5px;
 }

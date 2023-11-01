@@ -1,6 +1,7 @@
 import {init, olg, bannerSize, olg_ypy} from './common.js'
 
 
+
 document.getElementById("legalContent").innerHTML = `© 2023 IGT.
 <br/>
 © 2023 Evolution. All Rights Reserved.<br/>
@@ -10,7 +11,6 @@ online casino games. Games and screens may not appear as shown. Odds vary by gam
 and conditions apply.<br/>
 <br/>
 *Voted most trusted Online Casino by Ontario shoppers based on the 2023 Brandspark®
-<br/>
 Canadian Trust Study.`
 
 const READ = {
@@ -18,30 +18,36 @@ const READ = {
 	t2: 2.6
 }
 
-function rain(){
-	const tl = new TimelineMax()
-	tl.from(".ypy-text-1", {duration:1.5, y:`-=${bannerSize.h}`, skewX:70, skewY:70, rotate:"+=160"}, .1)
-	tl.from(".ypy-text-2", {duration:1.5, y:`-=${bannerSize.h}`, skewX:70, skewY:70, rotate:"+=160"}, .3)
-	tl.from(".ypy-text-3", {duration:1.5, y:`-=${bannerSize.h}`, skewX:70, skewY:70, rotate:"+=160"}, 0)
 
-	for(let i=1;i<9;i++){
-		const percent = i/9
+
+function rain({coins, skew}){
+	console.log(coins, skew, -bannerSize.h*20);
+	
+	const tl = new TimelineMax()
+	tl.from(".ypy-text-1", {duration:1.5, y:`-=${bannerSize.h}`, skewX:skew, skewY:skew, rotate:"+=160"}, .1)
+	tl.from(".ypy-text-2", {duration:1.5, y:`-=${bannerSize.h}`, skewX:skew, skewY:skew, rotate:"+=160"}, .3)
+	tl.from(".ypy-text-3", {duration:1.5, y:`-=${bannerSize.h}`, skewX:skew, skewY:skew, rotate:"+=160"}, 0)
+	const total = coins+1
+	for(let i=1;i<total;i++){
+		const percent = i/total
 		const rotate = 120+(30 * percent)
 		const delay = percent		
-		const skew = 40 + (30*percent)
-		tl.from(`.coin-${i}`, {duration:1.7, y:-bannerSize.h, skewX:skew, skewY:skew, rotate:`+=${rotate}`}, percent)	
+		const skewXY = skew + (30*percent)
+		tl.from(`.coin-${i}`, {duration:1.7, y:-bannerSize.h*3, skewX:skewXY, skewY:skewXY, rotate:`+=${rotate}`}, percent)	
 	}
 	return tl
 }
 
-function start(){
+function start({coins=8, skew}){
 	const tl = init()
 	
-
-	rain()
-
+	rain({coins, skew})
+	
 	tl.add("start", 3)
-	tl.from(".bg", {y:300, duration:.6}, "start")
+	if(bannerSize.w<bannerSize.h){
+		tl.from(".bg", {y:bannerSize.h, duration:.6}, "start")	
+	}
+	
 
 	tl.from(".t1", {opacity:0, duration:.3})
 	tl.to(".t1", {opacity:0, duration:.3}, `+=${READ.t1}`)
@@ -51,8 +57,8 @@ function start(){
 	tl.to([".t2", ".ypy-text", ".brand-logo"], {opacity:0, duration:.3}, "bye")
 
 	tl.add("f2")
-	tl.to(".bg", {y:0, duration:.4}, `f2`)
-	tl.from([".devices", ".legal"], {opacity:0, duration:.3})
+	tl.to(".bg", {y:0, x:0, duration:.4}, `f2`)
+	tl.from([".devices"], {opacity:0, duration:.3})
 
 	tl.from([".url", ".buttons"], {opacity:0, duration:.3})
 

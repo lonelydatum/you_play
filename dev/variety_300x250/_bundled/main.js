@@ -38,7 +38,7 @@ function olg_ypy() {
 	tl.add("done");
 	tl.add((0, _proline.olg)(), "done");
 	tl.add((0, _ypy_fxJs.ypyScroll)(), "done");
-	tl.from(".cta", { opacity: 0, duration: .3 }, "done+=.7");
+	tl.from([".cta", ".legal"], { opacity: 0, duration: .3 }, "done+=.7");
 	return tl;
 }
 
@@ -171,7 +171,7 @@ function ypyScroll() {
 	for (var i = 1; i < 11; i++) {
 		var y = i * 20;
 		var duration = i / 11 * 1.6;
-		console.log(y);
+
 		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
 	}
 	return tl;
