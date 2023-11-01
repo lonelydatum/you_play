@@ -233,9 +233,20 @@ canvas, .text, .frame, .outline, img {
 }
 
 .ypy-all {
-  -webkit-transform: translate(74px, 185px);
-  -ms-transform: translate(74px, 185px);
-  transform: translate(74px, 185px);
+  -webkit-transform: translate(118px, 108px) scale(2.45, 2.45);
+  -ms-transform: translate(118px, 108px) scale(2.45, 2.45);
+  transform: translate(118px, 108px) scale(2.45, 2.45);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy-all img {
+  -webkit-transform: translate(0px, 0px) scale(0.25, 0.25);
+  -ms-transform: translate(0px, 0px) scale(0.25, 0.25);
+  transform: translate(0px, 0px) scale(0.25, 0.25);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -363,28 +374,6 @@ canvas, .text, .frame, .outline, img {
 #banner {
   background-color: white;
   background-color: #a56bff;
-}
-
-.ypy-all {
-  -webkit-transform: translate(118px, 108px) scale(2.45, 2.45);
-  -ms-transform: translate(118px, 108px) scale(2.45, 2.45);
-  transform: translate(118px, 108px) scale(2.45, 2.45);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
-.ypy-all img {
-  -webkit-transform: translate(0px, 0px) scale(0.25, 0.25);
-  -ms-transform: translate(0px, 0px) scale(0.25, 0.25);
-  transform: translate(0px, 0px) scale(0.25, 0.25);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
 }
 
 .bg {

@@ -16,7 +16,7 @@ const READ = {
 function start(heroScale){	
 	const tl = init()	
 	
-	
+	// return
 	tl.add("bars")
 	
 	tl.from(".frame1 .top.b2", {y:-bannerSize.h, duration:.5}, "bars+=.3")
@@ -36,16 +36,17 @@ function start(heroScale){
 
 	tl.add("scale", "+=.3")
 	tl.to(".frame1 .top.b5", {opacity:.3, y:"-=30", duration:.5}, "scale")
-	// tl.to(".hero-all", {ease:"power1.out", x:0, scale:.4, y:-45, duration:.3}, "scale")
+	
 	tl.to(".hero-all", heroScale, "scale")
 	
-	tl.from([".footer-bg", ".t1"], {ease:"power1.out",  y:bannerSize.h, duration:.3}, "scale")
+	const footer = bannerSize.w>bannerSize.h ? {y:bannerSize.h} : {y:bannerSize.h}
+	tl.from([".footer-bg", ".t1"], {ease:"power1.out", ...footer , duration:.3}, "scale")
 
 	tl.add("end", `+=${READ.t1}`)
 	tl.set(".frame2", {opacity:1}, "end")
 	tl.to(".frame1", { y:-bannerSize.h, duration:.5}, "end")
 	
-	tl.to(".frame2", { y:0, duration:.5}, "end")
+	tl.from(".frame2", { y:bannerSize.h, duration:.5}, "end")
 	
 	tl.add("end-bars")
 

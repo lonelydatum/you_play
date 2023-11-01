@@ -236,4 +236,15 @@ canvas, .text, .frame, .outline, img {
   display: none;
 }
 
+.ypy-all {
+  -webkit-transform: translate(127px, 4px) scale(1, 1);
+  -ms-transform: translate(127px, 4px) scale(1, 1);
+  transform: translate(127px, 4px) scale(1, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
 /*# sourceMappingURL=main.css.map */

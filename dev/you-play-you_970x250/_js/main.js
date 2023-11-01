@@ -1,8 +1,8 @@
-import {b_320x50} from '../../_common/js/common.js'
+import {start} from '../../_common/js/ypy.js'
 
 
-
-
-b_320x50()
+// tl.to(".hero-all", {ease:"power1.out", x:0, scale:.5, duration:.3}, "scale")
+const heroScale = {ease:"power1.out",  duration:.3}
+start(heroScale)
 
 

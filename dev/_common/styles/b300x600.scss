@@ -22,3 +22,14 @@
 	width: 72px;
 	// opacity: 1;
 }
+
+
+
+.ypy-all{
+
+	
+	@include pos-scale(20, 365, 1.74);
+	img{
+		@include pos-scale(0, 0, .25);
+	}
+}

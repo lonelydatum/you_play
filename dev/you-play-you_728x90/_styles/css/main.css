@@ -236,4 +236,136 @@ canvas, .text, .frame, .outline, img {
   padding-left: 5px;
 }
 
+.ypy-all {
+  -webkit-transform: translate(230px, 20px) scale(1.03, 1.03);
+  -ms-transform: translate(230px, 20px) scale(1.03, 1.03);
+  transform: translate(230px, 20px) scale(1.03, 1.03);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy-all div {
+  overflow: hidden;
+  width: 30px;
+  height: 19px;
+  position: absolute;
+}
+
+.ypy_all_1 {
+  -webkit-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy_all_2 {
+  -webkit-transform: translate(11px, 0px);
+  -ms-transform: translate(11px, 0px);
+  transform: translate(11px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy_all_3 {
+  -webkit-transform: translate(25px, 0px);
+  -ms-transform: translate(25px, 0px);
+  transform: translate(25px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy_all_4 {
+  -webkit-transform: translate(43px, 0px);
+  -ms-transform: translate(43px, 0px);
+  transform: translate(43px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy_all_5 {
+  -webkit-transform: translate(58px, 0px);
+  -ms-transform: translate(58px, 0px);
+  transform: translate(58px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy_all_6 {
+  -webkit-transform: translate(69px, 0px);
+  -ms-transform: translate(69px, 0px);
+  transform: translate(69px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy_all_7 {
+  -webkit-transform: translate(85px, 0px);
+  -ms-transform: translate(85px, 0px);
+  transform: translate(85px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy_all_8 {
+  -webkit-transform: translate(102px, 0px);
+  -ms-transform: translate(102px, 0px);
+  transform: translate(102px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy_all_9 {
+  -webkit-transform: translate(113px, 0px);
+  -ms-transform: translate(113px, 0px);
+  transform: translate(113px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy_all_10 {
+  -webkit-transform: translate(128px, 0px);
+  -ms-transform: translate(128px, 0px);
+  transform: translate(128px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+#banner {
+  background-color: #4cfff4;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -92,6 +92,8 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _commonJs = require('./common.js');
 
 document.getElementById("legalContent").innerHTML = "\n© 2023 IGT.<br/>\n© 2023 Evolution. All Rights Reserved.<br/>\n<br/>\nMust be 19 years of age or older and a resident of Ontario, located in the province to play\nonline casino games. Games and screens may not appear as shown. Odds vary by game.\n<br/>\nTerms and conditions apply.";
@@ -104,6 +106,7 @@ var READ = {
 function start(heroScale) {
 	var tl = (0, _commonJs.init)();
 
+	// return
 	tl.add("bars");
 
 	tl.from(".frame1 .top.b2", { y: -_commonJs.bannerSize.h, duration: .5 }, "bars+=.3");
@@ -121,16 +124,17 @@ function start(heroScale) {
 
 	tl.add("scale", "+=.3");
 	tl.to(".frame1 .top.b5", { opacity: .3, y: "-=30", duration: .5 }, "scale");
-	// tl.to(".hero-all", {ease:"power1.out", x:0, scale:.4, y:-45, duration:.3}, "scale")
+
 	tl.to(".hero-all", heroScale, "scale");
 
-	tl.from([".footer-bg", ".t1"], { ease: "power1.out", y: _commonJs.bannerSize.h, duration: .3 }, "scale");
+	var footer = _commonJs.bannerSize.w > _commonJs.bannerSize.h ? { y: _commonJs.bannerSize.h } : { y: _commonJs.bannerSize.h };
+	tl.from([".footer-bg", ".t1"], _extends({ ease: "power1.out" }, footer, { duration: .3 }), "scale");
 
 	tl.add("end", "+=" + READ.t1);
 	tl.set(".frame2", { opacity: 1 }, "end");
 	tl.to(".frame1", { y: -_commonJs.bannerSize.h, duration: .5 }, "end");
 
-	tl.to(".frame2", { y: 0, duration: .5 }, "end");
+	tl.from(".frame2", { y: _commonJs.bannerSize.h, duration: .5 }, "end");
 
 	tl.add("end-bars");
 

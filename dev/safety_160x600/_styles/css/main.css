@@ -232,9 +232,9 @@ canvas, .text, .frame, .outline, img {
 }
 
 .ypy-all {
-  -webkit-transform: translate(74px, 185px);
-  -ms-transform: translate(74px, 185px);
-  transform: translate(74px, 185px);
+  -webkit-transform: translate(3px, 341px) scale(1.03, 1.03);
+  -ms-transform: translate(3px, 341px) scale(1.03, 1.03);
+  transform: translate(3px, 341px) scale(1.03, 1.03);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -362,17 +362,6 @@ canvas, .text, .frame, .outline, img {
 #banner {
   background-color: white;
   background-color: #a56bff;
-}
-
-.ypy-all {
-  -webkit-transform: translate(3px, 341px) scale(1.03, 1.03);
-  -ms-transform: translate(3px, 341px) scale(1.03, 1.03);
-  transform: translate(3px, 341px) scale(1.03, 1.03);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
 }
 
 .devices {

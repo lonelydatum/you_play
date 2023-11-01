@@ -47,7 +47,7 @@ exports.olg = _proline.olg;
 exports.bannerSize = bannerSize;
 exports.olg_ypy = olg_ypy;
 
-},{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":4}],2:[function(require,module,exports){
+},{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":5}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -91,6 +91,79 @@ exports.olg = olg;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _commonJs = require('./common.js');
+
+document.getElementById("legalContent").innerHTML = "\n© 2023 IGT.<br/>\n© 2023 Evolution. All Rights Reserved.<br/>\n<br/>\nMust be 19 years of age or older and a resident of Ontario, located in the province to play\nonline casino games. Games and screens may not appear as shown. Odds vary by game.\n<br/>\nTerms and conditions apply.";
+
+var READ = {
+	t1: 1.8,
+	t2: 0
+};
+
+function start(heroScale) {
+	var tl = (0, _commonJs.init)();
+
+	// return
+	tl.add("bars");
+
+	tl.from(".frame1 .top.b2", { y: -_commonJs.bannerSize.h, duration: .5 }, "bars+=.3");
+	tl.from(".frame1 .top.b4", { y: -_commonJs.bannerSize.h, duration: .5 }, "bars+=.6");
+	tl.from(".frame1 .top.b5", { y: -_commonJs.bannerSize.h, duration: .5 }, "bars+=.9");
+	tl.from(".frame1 .top.b6", { y: -_commonJs.bannerSize.h, duration: .5 }, "bars+=.2");
+	tl.from(".frame1 .top.b7", { y: -_commonJs.bannerSize.h, duration: .5 }, "bars+=.8");
+	tl.from(".frame1 .top.b8", { y: -_commonJs.bannerSize.h, duration: .5 }, "bars+=.5");
+	tl.from(".frame1 .bottom.b1", { y: _commonJs.bannerSize.h, duration: .5 }, "bars+=1");
+	tl.from(".frame1 .bottom.b3", { y: _commonJs.bannerSize.h, duration: .5 }, "bars+=.5");
+
+	tl.from(".ypy-you1", { y: -_commonJs.bannerSize.h, duration: .4 }, "bars+=.5");
+	tl.from(".ypy-play", { y: -_commonJs.bannerSize.h, duration: .4 }, "bars+=.8");
+	tl.from(".ypy-you2", { y: -_commonJs.bannerSize.h, duration: .4 }, "bars+=1");
+
+	tl.add("scale", "+=.3");
+	tl.to(".frame1 .top.b5", { opacity: .3, y: "-=30", duration: .5 }, "scale");
+
+	tl.to(".hero-all", heroScale, "scale");
+
+	var footer = _commonJs.bannerSize.w > _commonJs.bannerSize.h ? { y: _commonJs.bannerSize.h } : { y: _commonJs.bannerSize.h };
+	tl.from([".footer-bg", ".t1"], _extends({ ease: "power1.out" }, footer, { duration: .3 }), "scale");
+
+	tl.add("end", "+=" + READ.t1);
+	tl.set(".frame2", { opacity: 1 }, "end");
+	tl.to(".frame1", { y: -_commonJs.bannerSize.h, duration: .5 }, "end");
+
+	tl.from(".frame2", { y: _commonJs.bannerSize.h, duration: .5 }, "end");
+
+	tl.add("end-bars");
+
+	tl.from(".frame2 .bottom.c1", { y: _commonJs.bannerSize.h, duration: .5 }, "end-bars+=.1");
+	tl.from(".frame2 .top.c2", { y: -_commonJs.bannerSize.h, duration: .5 }, "end-bars+=.3");
+	tl.from(".frame2 .bottom.c3", { y: _commonJs.bannerSize.h, duration: .5 }, "end-bars+=.3");
+	tl.from(".frame2 .top.c4", { y: -_commonJs.bannerSize.h, duration: .5 }, "end-bars+=.3");
+	tl.from(".frame2 .top.c5", { y: -_commonJs.bannerSize.h, duration: .5 }, "end-bars+=.2");
+	tl.from(".frame2 .top.c6", { y: -_commonJs.bannerSize.h, duration: .5 }, "end-bars+=.2");
+	tl.from(".frame2 .bottom.c7", { y: _commonJs.bannerSize.h, duration: .5 }, "end-bars+=.3");
+	tl.from(".frame2 .top.c8", { y: -_commonJs.bannerSize.h, duration: .5 }, "end-bars+=0");
+	tl.from(".frame2 .bottom.c9", { y: _commonJs.bannerSize.h, duration: .5 }, "end-bars+=.1");
+
+	tl.add("scroller", "-=.5");
+	tl.from(".url", { opacity: 0, duration: .3 }, "scroller");
+
+	tl.add((0, _commonJs.olg_ypy)(), "+=.3");
+
+	return tl;
+}
+
+exports.start = start;
+
+},{"./common.js":1}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 function initYPY() {
 	var tl = new TimelineMax();
 	// tl.set(".ypy-all", {opacity:0})
@@ -116,14 +189,16 @@ initYPY();
 exports.initYPY = initYPY;
 exports.ypyScroll = ypyScroll;
 
-},{}],5:[function(require,module,exports){
-'use strict';
+},{}],6:[function(require,module,exports){
+"use strict";
 
-var _commonJsCommonJs = require('../../_common/js/common.js');
+var _commonJsYpyJs = require('../../_common/js/ypy.js');
 
-(0, _commonJsCommonJs.b_320x50)();
+// tl.to(".hero-all", {ease:"power1.out", x:0, scale:.5, duration:.3}, "scale")
+var heroScale = { ease: "power1.out", duration: .3 };
+(0, _commonJsYpyJs.start)(heroScale);
 
-},{"../../_common/js/common.js":1}]},{},[5])
+},{"../../_common/js/ypy.js":4}]},{},[6])
 
 
 //# sourceMappingURL=main.js.map
