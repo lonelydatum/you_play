@@ -35,7 +35,7 @@ function start(heroScale){
 	
 
 	tl.add("scale", "+=.3")
-	tl.to(".frame1 .top.b5", {opacity:.3, y:"-=30", duration:.5}, "scale")
+	// tl.to(".frame1 .top.b5", {opacity:.3, y:"-=30", duration:.5}, "scale")
 	
 	tl.to(".hero-all", heroScale, "scale")
 	
@@ -72,4 +72,4 @@ function start(heroScale){
 	return tl
 }
 
-export { start }
+export { start, READ, olg_ypy }
