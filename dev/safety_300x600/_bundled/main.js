@@ -104,20 +104,22 @@ var READ = {
 function rain(_ref) {
 	var coins = _ref.coins;
 	var skew = _ref.skew;
+	var _ref$y = _ref.y;
+	var y = _ref$y === undefined ? 3 : _ref$y;
 
-	console.log(coins, skew, -_commonJs.bannerSize.h * 20);
-
+	var yPos = -_commonJs.bannerSize.h * y;
+	console.log(-_commonJs.bannerSize.h * y);
 	var tl = new TimelineMax();
-	tl.from(".ypy-text-1", { duration: 1.5, y: "-=" + _commonJs.bannerSize.h, skewX: skew, skewY: skew, rotate: "+=160" }, .1);
-	tl.from(".ypy-text-2", { duration: 1.5, y: "-=" + _commonJs.bannerSize.h, skewX: skew, skewY: skew, rotate: "+=160" }, .3);
-	tl.from(".ypy-text-3", { duration: 1.5, y: "-=" + _commonJs.bannerSize.h, skewX: skew, skewY: skew, rotate: "+=160" }, 0);
+	tl.from(".ypy-text-1", { duration: 1.5, y: yPos, skewX: -skew, skewY: skew, rotate: "+=160" }, .1);
+	tl.from(".ypy-text-2", { duration: 1.5, y: yPos, skewX: -skew, skewY: skew, rotate: "+=160" }, .3);
+	tl.from(".ypy-text-3", { duration: 1.5, y: yPos, skewX: -skew, skewY: skew, rotate: "+=160" }, 0);
 	var total = coins + 1;
 	for (var i = 1; i < total; i++) {
 		var percent = i / total;
-		var rotate = 120 + 30 * percent;
+		var rotate = 120 + 50 * percent;
 		var delay = percent;
 		var skewXY = skew + 30 * percent;
-		tl.from(".coin-" + i, { duration: 1.7, y: -_commonJs.bannerSize.h * 3, skewX: skewXY, skewY: skewXY, rotate: "+=" + rotate }, percent);
+		tl.from(".coin-" + i, { duration: 1.7, y: yPos, skewX: skewXY, skewY: -skewXY, rotate: "+=" + rotate }, percent);
 	}
 	return tl;
 }
@@ -126,10 +128,12 @@ function start(_ref2) {
 	var _ref2$coins = _ref2.coins;
 	var coins = _ref2$coins === undefined ? 8 : _ref2$coins;
 	var skew = _ref2.skew;
+	var _ref2$y = _ref2.y;
+	var y = _ref2$y === undefined ? 3 : _ref2$y;
 
 	var tl = (0, _commonJs.init)();
-
-	rain({ coins: coins, skew: skew });
+	// return
+	rain({ coins: coins, skew: skew, y: y });
 
 	tl.add("start", 3);
 	if (_commonJs.bannerSize.w < _commonJs.bannerSize.h) {
@@ -153,6 +157,11 @@ function start(_ref2) {
 }
 
 exports.start = start;
+exports.rain = rain;
+exports.init = _commonJs.init;
+exports.bannerSize = _commonJs.bannerSize;
+exports.READ = READ;
+exports.olg_ypy = _commonJs.olg_ypy;
 
 },{"./common.js":1}],5:[function(require,module,exports){
 "use strict";

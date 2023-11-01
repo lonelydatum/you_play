@@ -219,10 +219,14 @@ canvas, .text, .frame, .outline, img {
   position: absolute;
 }
 
+.legal {
+  display: none;
+}
+
 #legalBtn {
-  -webkit-transform: translate(650px, 45px);
-  -ms-transform: translate(650px, 45px);
-  transform: translate(650px, 45px);
+  -webkit-transform: translate(280px, -205px);
+  -ms-transform: translate(280px, -205px);
+  transform: translate(280px, -205px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

@@ -16,10 +16,12 @@
 }
 
 
-
+.legal{
+	display: none;
+}
 
 #legalBtn{	
-	@include pos(650, 45);	
+	@include pos(280, -205);	
 	width: 80px;
 	display: none;
 	// opacity: 1 !important;

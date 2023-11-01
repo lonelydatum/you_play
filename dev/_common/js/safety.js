@@ -20,28 +20,29 @@ const READ = {
 
 
 
-function rain({coins, skew}){
-	console.log(coins, skew, -bannerSize.h*20);
-	
+function rain({coins, skew, y=3}){
+	const yPos = -bannerSize.h*y
+	console.log(-bannerSize.h*y);
 	const tl = new TimelineMax()
-	tl.from(".ypy-text-1", {duration:1.5, y:`-=${bannerSize.h}`, skewX:skew, skewY:skew, rotate:"+=160"}, .1)
-	tl.from(".ypy-text-2", {duration:1.5, y:`-=${bannerSize.h}`, skewX:skew, skewY:skew, rotate:"+=160"}, .3)
-	tl.from(".ypy-text-3", {duration:1.5, y:`-=${bannerSize.h}`, skewX:skew, skewY:skew, rotate:"+=160"}, 0)
+	tl.from(".ypy-text-1", {duration:1.5, y:yPos, skewX:-skew, skewY:skew, rotate:"+=160"}, .1)
+	tl.from(".ypy-text-2", {duration:1.5, y:yPos, skewX:-skew, skewY:skew, rotate:"+=160"}, .3)
+	tl.from(".ypy-text-3", {duration:1.5, y:yPos, skewX:-skew, skewY:skew, rotate:"+=160"}, 0)
 	const total = coins+1
 	for(let i=1;i<total;i++){
 		const percent = i/total
-		const rotate = 120+(30 * percent)
+		const rotate = 120+(50 * percent)
 		const delay = percent		
 		const skewXY = skew + (30*percent)
-		tl.from(`.coin-${i}`, {duration:1.7, y:-bannerSize.h*3, skewX:skewXY, skewY:skewXY, rotate:`+=${rotate}`}, percent)	
+		tl.from(`.coin-${i}`, {duration:1.7, y:yPos, skewX:skewXY, skewY:-skewXY, rotate:`+=${rotate}`}, percent)	
 	}
 	return tl
 }
 
-function start({coins=8, skew}){
+function start({coins=8, skew, y=3}){
 	const tl = init()
-	
-	rain({coins, skew})
+	// return
+	rain({coins, skew, y})
+
 	
 	tl.add("start", 3)
 	if(bannerSize.w<bannerSize.h){
@@ -69,4 +70,4 @@ function start({coins=8, skew}){
 
 
 
-export { start }
+export { start, rain, init, bannerSize, READ, olg_ypy }
