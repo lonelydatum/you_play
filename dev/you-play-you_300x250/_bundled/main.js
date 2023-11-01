@@ -115,9 +115,9 @@ function start(heroScale) {
 	tl.from(".frame1 .bottom.b1", { y: _commonJs.bannerSize.h, duration: .5 }, "bars+=1");
 	tl.from(".frame1 .bottom.b3", { y: _commonJs.bannerSize.h, duration: .5 }, "bars+=.5");
 
-	tl.from(".ypy-you1", { y: -100, duration: .4 }, "bars+=.5");
-	tl.from(".ypy-play", { y: -100, duration: .4 }, "bars+=.8");
-	tl.from(".ypy-you2", { y: -100, duration: .4 }, "bars+=1");
+	tl.from(".ypy-you1", { y: -_commonJs.bannerSize.h, duration: .4 }, "bars+=.5");
+	tl.from(".ypy-play", { y: -_commonJs.bannerSize.h, duration: .4 }, "bars+=.8");
+	tl.from(".ypy-you2", { y: -_commonJs.bannerSize.h, duration: .4 }, "bars+=1");
 
 	tl.add("scale", "+=.3");
 	tl.to(".frame1 .top.b5", { opacity: .3, y: "-=30", duration: .5 }, "scale");

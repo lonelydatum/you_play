@@ -1,24 +1,27 @@
-@import '../../../_common/styles/common.scss';
+@import '../../../_common/styles/b300x600.scss';
+@import '../../../_common/styles/ypy.scss';
+
+
 #banner{
-	width: 300px;
-	height: 600px;
+	background-color: #4cfff4;
+}
+
+.hero-all{
+	@include pos-scale(-70, -1, .85);	
+	
+}
+
+.frame2{
+	@include pos(0, 250);
 }
 
 
 
-#olg{
-	width: 129px;
-	height: 89px;
-	@include pos(0, 526);
-	// opacity: .5 !important;
-	;
-}
-
-
-
-
-#legalBtn{	
-	@include pos(206, 551);	
-	width: 92px;
-	// opacity: 1;
+.ypy-all{
+	// opacity: ;
+	
+	@include pos-scale(20, 365, 1.74);
+	img{
+		@include pos-scale(0, 0, .25);
+	}
 }

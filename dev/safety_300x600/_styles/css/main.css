@@ -365,9 +365,20 @@ canvas, .text, .frame, .outline, img {
 }
 
 .ypy-all {
-  -webkit-transform: translate(19px, 365px) scale(1.74, 1.74);
-  -ms-transform: translate(19px, 365px) scale(1.74, 1.74);
-  transform: translate(19px, 365px) scale(1.74, 1.74);
+  -webkit-transform: translate(20px, 365px) scale(1.74, 1.74);
+  -ms-transform: translate(20px, 365px) scale(1.74, 1.74);
+  transform: translate(20px, 365px) scale(1.74, 1.74);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy-all img {
+  -webkit-transform: translate(0px, 0px) scale(0.25, 0.25);
+  -ms-transform: translate(0px, 0px) scale(0.25, 0.25);
+  transform: translate(0px, 0px) scale(0.25, 0.25);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
