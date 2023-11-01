@@ -34,10 +34,11 @@ function init() {
 
 function olg_ypy() {
 	var tl = new TimelineMax();
+
 	tl.add("done");
 	tl.add((0, _proline.olg)(), "done");
 	tl.add((0, _ypy_fxJs.ypyScroll)(), "done");
-	tl.from(".cta", { opacity: 0, duration: .3 }, "done+=.5");
+	tl.from(".cta", { opacity: 0, duration: .3 }, "done+=.7");
 	return tl;
 }
 
@@ -69,13 +70,21 @@ var _commonJs = require('./common.js');
 
 document.getElementById("legalContent").innerHTML = "\n© 2023 IGT.<br/>\n© 2023 Evolution. All Rights Reserved.<br/>\n© 2023 Light &amp; Wonder, Inc. All Rights Reserved.<br/>\n<br/>\nMust be 19 years of age or older and a resident of Ontario, located in the province to play\nonline casino games. Games and screens may not appear as shown. Odds vary by game. Terms and conditions apply.\n<br/>\n*Voted most trusted Online Casino by Ontario shoppers based on the 2023 Brandspark® Canadian Trust Study.";
 
+var READ = {
+	t1: 2.2,
+	t2: 2
+};
+
 function start() {
 
 	var tl = (0, _commonJs.init)();
 
 	var TRANSFORMORIGIN = { x: 150, y: 195 };
-	var rings = [{ id: ".ring1_1" }, { id: ".ring1_2" }, { id: ".ring1_3" }, { id: ".ring1_4", offsetX: -5 }, { id: ".ring1_5" }, { id: ".ypy1-1" }, { id: ".ypy1-2" }, { id: ".ypy1-3" }, { id: ".o-1", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-2", to: { x: 150, y: 133 }, offsetY: 0 }, { id: ".o-3", to: { x: 150, y: 150 }, offsetY: -20 }];
+	var rings = [{ id: ".ring1_1" }, { id: ".ring1_2" }, { id: ".ring1_3" }, { id: ".ring1_4", offsetX: -5 }, { id: ".ring1_5" }, { id: ".ypy1-1" }, { id: ".ypy1-2" }, { id: ".ypy1-3" }];
 
+	// {id:".o-1", to:{x:150, y:133}, offsetY:0},
+	// {id:".o-2", to:{x:150, y:133}, offsetY:0},
+	// {id:".o-3", to:{x:150, y:150}, offsetY:-20},		
 	function transformOrigin(obj) {
 		var _ref = obj.to || TRANSFORMORIGIN;
 
@@ -112,20 +121,21 @@ function start() {
 	tl.to(".ypy1-2", { scale: .4, x: "+=43", y: "-=30", rotate: -40, duration: .5 }, "shrink");
 	tl.to(".ypy1-3", { scale: .4, x: "+=20", y: "-=50", rotate: 0, duration: .5 }, "shrink");
 
-	tl.to(".t1", { opacity: 0, duration: .3 }, "+=2.2");
+	tl.to(".t1", { opacity: 0, duration: .3 }, "+=" + READ.t1);
 	tl.from([".t2", ".brand-logo"], { opacity: 0, duration: .3 });
 
-	tl.add("end", "+=2");
+	tl.add("end", "+=" + READ.t2);
 	tl.to(".frame1", { y: "-=250", duration: .5 }, "end");
 	tl.set(".frame2", { opacity: 1 }, "end");
 	tl.from(".frame2", { y: "+=250", duration: .5 }, "end");
 
-	tl.add("end-spin");
-	tl.from(".o-1", { opacity: 0, rotate: -270, duration: 1.7 }, "end-spin");
-	tl.from(".o-2", { opacity: 0, rotate: 270, duration: 1.3 }, "end-spin");
-	tl.from(".o-3", { opacity: 0, rotate: -270, duration: 1.1 }, "end-spin");
+	tl.from(".url", { opacity: 0, duration: .3 });
+	// tl.add("end-spin")
+	// tl.from(".o-1", {opacity:0, rotate:-270, duration:1.7}, "end-spin")
+	// tl.from(".o-2", {opacity:0, rotate:270, duration:1.3}, "end-spin")
+	// tl.from(".o-3", {opacity:0, rotate:-270, duration:1.1}, "end-spin")
 
-	tl.add((0, _commonJs.olg_ypy)(), "-=1.5");
+	tl.add((0, _commonJs.olg_ypy)(), "-=.3");
 }
 
 exports.start = start;
@@ -176,7 +186,7 @@ function ypyScroll() {
 	for (var i = 1; i < 11; i++) {
 		var y = i * 20;
 		var duration = i / 11 * 1.6;
-
+		console.log(y);
 		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
 	}
 	return tl;

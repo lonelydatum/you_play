@@ -27,8 +27,7 @@ function rain(){
 	for(let i=1;i<9;i++){
 		const percent = i/9
 		const rotate = 120+(30 * percent)
-		const delay = percent
-		console.log(percent);
+		const delay = percent		
 		const skew = 40 + (30*percent)
 		tl.from(`.coin-${i}`, {duration:1.7, y:-bannerSize.h, skewX:skew, skewY:skew, rotate:`+=${rotate}`}, percent)	
 	}
@@ -49,7 +48,7 @@ function start(){
 	tl.from([".t2", ".brand-logo"], {opacity:0, duration:.3})
 
 	tl.add("bye", `+=${READ.t2}`)
-	tl.to([".t2", ".ypy-text"], {opacity:0, duration:.3}, "bye")
+	tl.to([".t2", ".ypy-text", ".brand-logo"], {opacity:0, duration:.3}, "bye")
 
 	tl.add("f2")
 	tl.to(".bg", {y:0, duration:.4}, `f2`)

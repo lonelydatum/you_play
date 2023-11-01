@@ -10,6 +10,10 @@ online casino games. Games and screens may not appear as shown. Odds vary by gam
 <br/>
 *Voted most trusted Online Casino by Ontario shoppers based on the 2023 Brandspark® Canadian Trust Study.`
 
+const READ = {
+	t1: 2.2,
+	t2: 2
+}
 
 function start(){
 
@@ -27,9 +31,9 @@ function start(){
 		{id:".ypy1-1"},
 		{id:".ypy1-2"},
 		{id:".ypy1-3"},
-		{id:".o-1", to:{x:150, y:133}, offsetY:0},
-		{id:".o-2", to:{x:150, y:133}, offsetY:0},
-		{id:".o-3", to:{x:150, y:150}, offsetY:-20},		
+		// {id:".o-1", to:{x:150, y:133}, offsetY:0},
+		// {id:".o-2", to:{x:150, y:133}, offsetY:0},
+		// {id:".o-3", to:{x:150, y:150}, offsetY:-20},		
 	]
 
 	function transformOrigin(obj){		
@@ -62,22 +66,23 @@ function start(){
 	tl.to(".ypy1-2", {scale:.4, x:"+=43", y:"-=30", rotate:-40, duration:.5}, "shrink")
 	tl.to(".ypy1-3", {scale:.4, x:"+=20", y:"-=50", rotate:0, duration:.5}, "shrink")
 
-	tl.to(".t1", {opacity:0, duration:.3}, "+=2.2")
+	tl.to(".t1", {opacity:0, duration:.3}, `+=${READ.t1}`)
 	tl.from([".t2", ".brand-logo"], {opacity:0, duration:.3})
 
-	tl.add("end", "+=2")
+	tl.add("end", `+=${READ.t2}`)
 	tl.to(".frame1", {y:"-=250", duration:.5}, "end")
 	tl.set(".frame2", {opacity:1}, "end")
 	tl.from(".frame2", {y:"+=250", duration:.5}, "end")
 
-	tl.add("end-spin")
-	tl.from(".o-1", {opacity:0, rotate:-270, duration:1.7}, "end-spin")
-	tl.from(".o-2", {opacity:0, rotate:270, duration:1.3}, "end-spin")
-	tl.from(".o-3", {opacity:0, rotate:-270, duration:1.1}, "end-spin")
+	tl.from(".url", {opacity:0, duration:.3})
+	// tl.add("end-spin")
+	// tl.from(".o-1", {opacity:0, rotate:-270, duration:1.7}, "end-spin")
+	// tl.from(".o-2", {opacity:0, rotate:270, duration:1.3}, "end-spin")
+	// tl.from(".o-3", {opacity:0, rotate:-270, duration:1.1}, "end-spin")
 	
 	
 	
-	tl.add(olg_ypy(), "-=1.5")
+	tl.add(olg_ypy(), "-=.3")
 	
 }
 

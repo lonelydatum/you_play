@@ -8,7 +8,10 @@ online casino games. Games and screens may not appear as shown. Odds vary by gam
 <br/>
 Terms and conditions apply.`
 
-
+const READ = {
+	t1: 1.8,
+	t2: 0
+}
 
 function start(){	
 	const tl = init()	
@@ -34,7 +37,7 @@ function start(){
 	tl.to(".hero-all", {ease:"power1.out", x:0, scale:.4, y:-45, duration:.3}, "scale")
 	tl.from([".footer-bg", ".t1"], {ease:"power1.out",  y:200, duration:.3}, "scale")
 
-	tl.add("end", "+=1.8")
+	tl.add("end", `+=${READ.t1}`)
 	tl.set(".frame2", {opacity:1}, "end")
 	tl.to(".frame1", { y:-250, duration:.5}, "end")
 	

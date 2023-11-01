@@ -34,10 +34,11 @@ function init() {
 
 function olg_ypy() {
 	var tl = new TimelineMax();
+
 	tl.add("done");
 	tl.add((0, _proline.olg)(), "done");
 	tl.add((0, _ypy_fxJs.ypyScroll)(), "done");
-	tl.from(".cta", { opacity: 0, duration: .3 }, "done+=.5");
+	tl.from(".cta", { opacity: 0, duration: .3 }, "done+=.7");
 	return tl;
 }
 
@@ -95,6 +96,11 @@ var _commonJs = require('./common.js');
 
 document.getElementById("legalContent").innerHTML = "\n© 2023 IGT.<br/>\n© 2023 Evolution. All Rights Reserved.<br/>\n<br/>\nMust be 19 years of age or older and a resident of Ontario, located in the province to play\nonline casino games. Games and screens may not appear as shown. Odds vary by game.\n<br/>\nTerms and conditions apply.";
 
+var READ = {
+	t1: 1.8,
+	t2: 0
+};
+
 function start() {
 	var tl = (0, _commonJs.init)();
 
@@ -118,7 +124,7 @@ function start() {
 	tl.to(".hero-all", { ease: "power1.out", x: 0, scale: .4, y: -45, duration: .3 }, "scale");
 	tl.from([".footer-bg", ".t1"], { ease: "power1.out", y: 200, duration: .3 }, "scale");
 
-	tl.add("end", "+=1.8");
+	tl.add("end", "+=" + READ.t1);
 	tl.set(".frame2", { opacity: 1 }, "end");
 	tl.to(".frame1", { y: -250, duration: .5 }, "end");
 
@@ -166,7 +172,7 @@ function ypyScroll() {
 	for (var i = 1; i < 11; i++) {
 		var y = i * 20;
 		var duration = i / 11 * 1.6;
-
+		console.log(y);
 		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
 	}
 	return tl;

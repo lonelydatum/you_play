@@ -12,7 +12,7 @@ function ypyScroll(){
 	for(let i=1;i<11;i++){
 		const y = i*20
 		const duration = i/11 * 1.6
-		
+		console.log(y);
 		tl.to(`.ypy-all .ypy_all_${i} img`, {ease:"back.inOut", y:((i-1)*-20)-2, duration}, "spin")	
 	}
 	return tl	
