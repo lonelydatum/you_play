@@ -199,7 +199,7 @@ exports.ypyScroll = ypyScroll;
 
 var _commonJsSafetyJs = require('../../_common/js/safety.js');
 
-(0, _commonJsSafetyJs.start)({ coins: 8, skew: 40 });
+(0, _commonJsSafetyJs.start)({ coins: 8, skew: 40, y: 4 });
 
 },{"../../_common/js/safety.js":4}]},{},[6])
 
