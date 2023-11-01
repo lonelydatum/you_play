@@ -186,11 +186,11 @@ exports.initYPY = initYPY;
 exports.ypyScroll = ypyScroll;
 
 },{}],6:[function(require,module,exports){
-'use strict';
+"use strict";
 
 var _commonJsYpyJs = require('../../_common/js/ypy.js');
 
-(0, _commonJsYpyJs.start)();
+(0, _commonJsYpyJs.start)({ ease: "power1.out", x: 0, scale: .4, y: -45, duration: .3 });
 
 },{"../../_common/js/ypy.js":4}]},{},[6])
 
