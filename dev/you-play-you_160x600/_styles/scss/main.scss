@@ -1,3 +1,24 @@
 @import '../../../_common/styles/b160x600.scss';
+@import '../../../_common/styles/ypy.scss';
 
 
+#banner{
+	background-color: #4cfff4;
+}
+
+.hero-all{
+	@include pos-scale(-70, -1, .85);	
+	
+}
+
+.frame2{
+	@include pos(0, 250);
+}
+
+
+
+.ypy-all{
+	// opacity: ;
+	@include pos-scale(3, 341, 1.03);
+	
+}
