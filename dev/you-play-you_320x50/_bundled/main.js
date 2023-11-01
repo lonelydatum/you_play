@@ -122,7 +122,7 @@ function start(heroScale) {
 	tl.from(".ypy-play", { y: -_commonJs.bannerSize.h, duration: .4 }, "bars+=.8");
 	tl.from(".ypy-you2", { y: -_commonJs.bannerSize.h, duration: .4 }, "bars+=1");
 
-	tl.add("scale", "+=.3");
+	tl.add("scale", 1.5);
 	// tl.to(".frame1 .top.b5", {opacity:.3, y:"-=30", duration:.5}, "scale")
 
 	tl.to(".hero-all", heroScale, "scale");
