@@ -100,56 +100,56 @@ var READ = {
 	t2: 2.6
 };
 
-function start() {
-	var tl = (0, _commonJs.init)();
+function rotateSetRetina(data) {
+	var tl = new TimelineMax();
+	var list = data.list;
+	var offsetX = data.offsetX;
+	var offsetY = data.offsetY;
+	var to = data.to;
 
-	var TRANSFORMORIGIN = { x: 158, y: 154 };
-	var rings = [{ id: ".ring1", offsetY: -22, offsetX: 0 }, { id: ".ring2", offsetY: -22, offsetX: 0 }, { id: ".ring3", offsetY: -22, offsetX: 0 }, { id: ".ring4", offsetY: -22, offsetX: 0 }, { id: ".ring5", offsetY: -22, offsetX: 0 }, { id: ".ypy-1", offsetY: -22, offsetX: 0 }, { id: ".ypy-2", offsetY: -22, offsetX: 0 }, { id: ".ypy-3", offsetY: -22, offsetX: 0 }];
+	list.map(function (a) {
+		var x = to.x;
+		var y = to.y;
 
-	function transformOrigin(obj) {
-		var _ref = obj.to || TRANSFORMORIGIN;
-
-		var x = _ref.x;
-		var y = _ref.y;
-
-		var offsetX = obj.offsetX || 0;
-		var offsetY = obj.offsetY || 0;
-		tl.set(obj.id, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
-	}
-
-	rings.map(function (a) {
-		return transformOrigin(a);
+		tl.set(a, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
 	});
+}
 
-	var rotate = 180;
+function rotateDo() {
+	var rotateRing = arguments.length <= 0 || arguments[0] === undefined ? 180 : arguments[0];
+	var rotateYPY = arguments.length <= 1 || arguments[1] === undefined ? 120 : arguments[1];
+
+	var tl = new TimelineMax();
+
 	tl.add("arcs-in");
-	tl.from(".ring1", { rotate: rotate, duration: 1.3 }, "arcs-in+=0");
-	tl.from(".ring2", { rotate: -rotate, duration: 1.3 }, "arcs-in+=0");
-	tl.from(".ring3", { rotate: rotate, duration: 1.3 }, "arcs-in+=0");
-	tl.from(".ring4", { rotate: -rotate, duration: 1.3 }, "arcs-in+=0");
-	tl.from(".ring5", { rotate: rotate, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring1", { rotate: rotateRing, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring2", { rotate: -rotateRing, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring3", { rotate: rotateRing, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring4", { rotate: -rotateRing, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring5", { rotate: rotateRing, duration: 1.3 }, "arcs-in+=0");
 
-	tl.from(".ypy-1", { opacity: 0, rotate: 120, duration: 1.5 }, "arcs-in+=0");
-	tl.from(".ypy-2", { opacity: 0, rotate: -120, duration: 1.5 }, "arcs-in+=0");
-	tl.from(".ypy-3", { opacity: 0, rotate: 120, duration: 1.5 }, "arcs-in+=0");
+	tl.from(".ypy-1", { opacity: 0, rotate: rotateYPY, duration: 1.5 }, "arcs-in+=0");
+	tl.from(".ypy-2", { opacity: 0, rotate: -rotateYPY, duration: 1.5 }, "arcs-in+=0");
+	tl.from(".ypy-3", { opacity: 0, rotate: rotateYPY, duration: 1.5 }, "arcs-in+=0");
 
-	// tl.to(".devices", {x:12, y:-7, scale:.46, duration:.5}, "tl")
 	tl.from(".t1", { opacity: 0, duration: .5 }, "arcs-in+=1");
-
 	tl.to(".t1", { opacity: 0, duration: .3 }, "+=" + READ.t1);
 	tl.from(".t2", { opacity: 0, duration: .3 });
 
 	tl.to(".t2", { opacity: 0, duration: .3 }, "+=" + READ.t2);
 
 	tl.add("end");
-	tl.to(".devices", { y: -21, scale: .46, duration: .3 }, "end");
+	tl.to(".devices", { y: 0, x: 0, duration: .3 }, "end");
 	tl.from(".url", { opacity: 0, duration: .3 }, "end");
 	tl.to([".ypy-1", ".ypy-2", ".ypy-3"], { opacity: 0, duration: .3 }, "end");
 
 	tl.add((0, _commonJs.olg_ypy)(), "+=.3");
+	return tl;
 }
 
-exports.start = start;
+exports.READ = READ;
+exports.rotateSetRetina = rotateSetRetina;
+exports.rotateDo = rotateDo;
 
 },{"./common.js":1}],5:[function(require,module,exports){
 "use strict";
@@ -187,9 +187,24 @@ exports.ypyScroll = ypyScroll;
 
 var _commonJsVarietyJs = require('../../_common/js/variety.js');
 
-(0, _commonJsVarietyJs.start)();
+var _commonJsCommonJs = require('../../_common/js/common.js');
 
-},{"../../_common/js/variety.js":4}]},{},[6])
+start();
+
+function start() {
+	var tl = (0, _commonJsCommonJs.init)();
+
+	var data = {
+		list: [".ypy-1", ".ypy-2", ".ypy-3", ".ring1", ".ring2", ".ring3", ".ring4", ".ring5"],
+		offsetY: -22, offsetX: 0, to: { x: 158, y: 154 }
+	};
+
+	(0, _commonJsVarietyJs.rotateSetRetina)(data);
+
+	tl.add((0, _commonJsVarietyJs.rotateDo)(180, 120));
+}
+
+},{"../../_common/js/common.js":1,"../../_common/js/variety.js":4}]},{},[6])
 
 
 //# sourceMappingURL=main.js.map

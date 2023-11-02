@@ -1,3 +1,33 @@
-import {start} from '../../_common/js/variety.js'
+import {READ, rotateSetRetina, rotateDo} from '../../_common/js/variety.js'
+import {init, olg_ypy} from '../../_common/js/common.js'
 
 start()
+
+
+function start(){
+	const tl = init()
+
+
+	const data = {
+		list: [".ypy-1", ".ypy-2", ".ypy-3", ".ring1", ".ring2", ".ring3", ".ring4", ".ring5"],
+		offsetY:-22, offsetX:0, to:{x:158, y:154}
+	}
+
+	rotateSetRetina(data)
+
+
+
+	tl.add(rotateDo(180, 120 ))
+
+
+	
+	
+	
+
+	
+	
+
+	
+
+
+}

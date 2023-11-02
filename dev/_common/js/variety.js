@@ -14,68 +14,53 @@ const READ = {
 	t2: 2.6
 }
 
-function start(){
-	const tl = init()
+
+function rotateSetRetina(data){
+	const tl = new TimelineMax()
+	const {list, offsetX, offsetY, to} = data
+	list.map(a=>{
+		const {x, y } = to		
+		tl.set(a, {transformOrigin:`${x*2}px ${y*2}px`, x:-x+offsetX, y:-y+offsetY, scale:.5, rotate:0})	
+	})
+	
+}
 
 
-	const TRANSFORMORIGIN = {x:158, y:154}
-	const rings = [
-		{id:".ring1", offsetY:-22, offsetX:0},
-		{id:".ring2", offsetY:-22, offsetX:0},
-		{id:".ring3", offsetY:-22, offsetX:0},
-		{id:".ring4", offsetY:-22, offsetX:0},
-		{id:".ring5", offsetY:-22, offsetX:0},
-		{id:".ypy-1", offsetY:-22, offsetX:0},
-		{id:".ypy-2", offsetY:-22, offsetX:0},
-		{id:".ypy-3", offsetY:-22, offsetX:0},
-	]
-
-	function transformOrigin(obj){
-		
-		const {x, y } = obj.to || TRANSFORMORIGIN
-		const offsetX = obj.offsetX || 0 
-		const offsetY = obj.offsetY || 0 
-		tl.set(obj.id, {transformOrigin:`${x*2}px ${y*2}px`, x:-x+offsetX, y:-y+offsetY, scale:.5, rotate:0})
-	}
-
-	rings.map(a=>transformOrigin(a))
 
 
-	const rotate = 180
+function rotateDo(rotateRing=180, rotateYPY=120){
+	const tl = new TimelineMax()
+	
 	tl.add("arcs-in")
-	tl.from(".ring1", {rotate:rotate, duration:1.3}, "arcs-in+=0")
-	tl.from(".ring2", {rotate:-rotate, duration:1.3}, "arcs-in+=0")
-	tl.from(".ring3", {rotate:rotate, duration:1.3}, "arcs-in+=0")
-	tl.from(".ring4", {rotate:-rotate, duration:1.3}, "arcs-in+=0")
-	tl.from(".ring5", {rotate:rotate, duration:1.3}, "arcs-in+=0")
+	tl.from(".ring1", {rotate:rotateRing, duration:1.3}, "arcs-in+=0")
+	tl.from(".ring2", {rotate:-rotateRing, duration:1.3}, "arcs-in+=0")
+	tl.from(".ring3", {rotate:rotateRing, duration:1.3}, "arcs-in+=0")
+	tl.from(".ring4", {rotate:-rotateRing, duration:1.3}, "arcs-in+=0")
+	tl.from(".ring5", {rotate:rotateRing, duration:1.3}, "arcs-in+=0")
 
-	tl.from(".ypy-1", {opacity:0, rotate:120, duration:1.5}, "arcs-in+=0")
-	tl.from(".ypy-2", {opacity:0, rotate:-120, duration:1.5}, "arcs-in+=0")
-	tl.from(".ypy-3", {opacity:0, rotate:120, duration:1.5}, "arcs-in+=0")
+	tl.from(".ypy-1", {opacity:0, rotate:rotateYPY, duration:1.5}, "arcs-in+=0")
+	tl.from(".ypy-2", {opacity:0, rotate:-rotateYPY, duration:1.5}, "arcs-in+=0")
+	tl.from(".ypy-3", {opacity:0, rotate:rotateYPY, duration:1.5}, "arcs-in+=0")
 
-
-	
-	// tl.to(".devices", {x:12, y:-7, scale:.46, duration:.5}, "tl")
 	tl.from(".t1", {opacity:0, duration:.5}, "arcs-in+=1")
-
-	
 	tl.to(".t1", {opacity:0, duration:.3}, `+=${READ.t1}`)
 	tl.from(".t2", {opacity:0, duration:.3})
 
 	tl.to(".t2", {opacity:0, duration:.3}, `+=${READ.t2}`)
 
 	tl.add("end")
-	tl.to(".devices", {y:-21, scale:.46, duration:.3}, "end")
+	tl.to(".devices", {y:0, x:0, duration:.3}, "end")
 	tl.from(".url", {opacity:0, duration:.3}, "end")
 	tl.to([".ypy-1", ".ypy-2", ".ypy-3"], {opacity:0, duration:.3}, "end")
 	
 
 
 	tl.add(olg_ypy(), "+=.3")
-
-
+	return tl
 }
 
 
 
-export { start }
+
+
+export {  READ, rotateSetRetina, rotateDo }
