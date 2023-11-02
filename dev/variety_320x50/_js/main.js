@@ -27,7 +27,7 @@ function start(){
 	tl.from(".ypy1-3", {opacity:0, rotate:-60, duration:.5}, "arcs-in+=.3")
 	
 	
-	tl.to([".ypy1-1",".ypy1-2", ".ypy1-3"], {opacity:0, duration:.3})
+	tl.to([".ypy1-1",".ypy1-2", ".ypy1-3"], {opacity:0, duration:.3}, "+=1")
 	
 	tl.from(".t1", {y:250, duration:.4}, "shrink")
 
