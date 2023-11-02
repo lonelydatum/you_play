@@ -208,9 +208,10 @@ function initYPY() {
 }
 function ypyScroll() {
 	var tl = new TimelineMax();
-	console.log('sldkfjskdlfj');
+
 	// tl.set(".ypy-all", {opacity:0})
 	tl.add("spin");
+	tl.set(".hide-until", { visibility: "visible" }, "spin");
 	for (var i = 1; i < 11; i++) {
 		var y = i * 20;
 		var duration = i / 11 * 1.6;

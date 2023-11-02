@@ -201,6 +201,10 @@ canvas, .text, .frame, .outline, img {
   pointer-events: none;
 }
 
+.hide-until {
+  visibility: hidden;
+}
+
 #banner {
   width: 300px;
   height: 250px;
