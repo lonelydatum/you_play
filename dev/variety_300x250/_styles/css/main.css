@@ -365,9 +365,9 @@ canvas, .text, .frame, .outline, img {
 }
 
 .devices {
-  -webkit-transform: translate(0px, -21px) scale(0.5, 0.5);
-  -ms-transform: translate(0px, -21px) scale(0.5, 0.5);
-  transform: translate(0px, -21px) scale(0.5, 0.5);
+  -webkit-transform: translate(8px, 15px) scale(0.48, 0.48);
+  -ms-transform: translate(8px, 15px) scale(0.48, 0.48);
+  transform: translate(8px, 15px) scale(0.48, 0.48);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

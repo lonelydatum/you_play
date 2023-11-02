@@ -30,13 +30,13 @@ function rotateSetRetina(data){
 
 function rotateDo(rotateRing=180, rotateYPY=120){
 	const tl = new TimelineMax()
-	
+	// return
 	tl.add("arcs-in")
-	tl.from(".ring1", {rotate:rotateRing, duration:1.3}, "arcs-in+=0")
-	tl.from(".ring2", {rotate:-rotateRing, duration:1.3}, "arcs-in+=0")
-	tl.from(".ring3", {rotate:rotateRing, duration:1.3}, "arcs-in+=0")
-	tl.from(".ring4", {rotate:-rotateRing, duration:1.3}, "arcs-in+=0")
-	tl.from(".ring5", {rotate:rotateRing, duration:1.3}, "arcs-in+=0")
+	tl.from(".ring1", {rotate:rotateRing, duration:1.1}, "arcs-in+=0")
+	tl.from(".ring2", {rotate:-rotateRing, duration:1.1}, "arcs-in+=0")
+	tl.from(".ring3", {rotate:rotateRing, duration:1.1}, "arcs-in+=0")
+	tl.from(".ring4", {rotate:-rotateRing, duration:1.1}, "arcs-in+=0")
+	tl.from(".ring5", {rotate:rotateRing, duration:1.1}, "arcs-in+=0")
 
 	tl.from(".ypy-1", {opacity:0, rotate:rotateYPY, duration:1.5}, "arcs-in+=0")
 	tl.from(".ypy-2", {opacity:0, rotate:-rotateYPY, duration:1.5}, "arcs-in+=0")
@@ -49,7 +49,7 @@ function rotateDo(rotateRing=180, rotateYPY=120){
 	tl.to(".t2", {opacity:0, duration:.3}, `+=${READ.t2}`)
 
 	tl.add("end")
-	tl.to(".devices", {y:0, x:0, duration:.3}, "end")
+	tl.to(".devices", {y:0, x:0, scale:.5, duration:.3}, "end")
 	tl.from(".url", {opacity:0, duration:.3}, "end")
 	tl.to([".ypy-1", ".ypy-2", ".ypy-3"], {opacity:0, duration:.3}, "end")
 	
