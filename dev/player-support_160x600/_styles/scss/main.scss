@@ -1,4 +1,4 @@
-@import '../../../_common/styles/b300x250.scss';
+@import '../../../_common/styles/b160x600.scss';
 @import '../../../_common/styles/ypy.scss';
 
 #banner{
@@ -6,8 +6,10 @@
 }
 
 .hero{
-	// opacity:.5;
-	@include pos-scale(-89, 0, .78);
+	// transform-origin: 50% 50%;
+	
+	@include pos-scale(-51, 12, .82);
+	
 }
 
 .frame2{
@@ -17,9 +19,9 @@
 
 
 .footer-bar{
-	width: 300px;
-	height: 90px;
+	width: 160px;
+	height: 243px;
 	background-color: #bfff00;
-	@include pos(0, 160);
+	@include pos(0, 357);
 }
 

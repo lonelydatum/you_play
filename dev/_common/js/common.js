@@ -36,4 +36,28 @@ function olg_ypy(){
 	return tl
 }
 
-export { init, olg, bannerSize, olg_ypy }
+
+function rotateScale1(data){
+
+	const tl = new TimelineMax()
+	const {list, offsetX, offsetY, to} = data
+	list.map(a=>{
+		const {x, y } = to		
+		tl.set(a, {transformOrigin:`${x}px ${y}px`, x:offsetX-x, y:offsetY-y, scale:1, rotate:0})
+	})
+
+
+	
+}
+
+function rotateScale2(data){
+	const tl = new TimelineMax()
+	const {list, offsetX, offsetY, to} = data
+	list.map(a=>{
+		const {x, y } = to		
+		tl.set(a, {transformOrigin:`${x*2}px ${y*2}px`, x:-x+offsetX, y:-y+offsetY, scale:.5, rotate:0})	
+	})
+	
+}
+
+export { init, olg, bannerSize, olg_ypy, rotateScale1, rotateScale2 }

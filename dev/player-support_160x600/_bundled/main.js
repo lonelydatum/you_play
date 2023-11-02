@@ -215,14 +215,15 @@ var _commonJsCommonJs = require('../../_common/js/common.js');
 start();
 function start() {
 
-	// 349 50
+	var tl = (0, _commonJsCommonJs.init)();
+
 	var data = { list: [".ring1_1", ".ring1_2", ".ring1_3"],
-		offsetX: 146, offsetY: 190, to: { x: 160, y: 190 } };
+		offsetX: 72, offsetY: 466, to: { x: 422, y: 516 + 10 } };
 
 	(0, _commonJsCommonJs.rotateScale1)(data);
-	(0, _commonJsCommonJs.rotateScale2)({ list: [".ypy1-1", ".ypy1-2", ".ypy1-3"], offsetX: 0, offsetY: 0, to: { x: 150, y: 180 } });
+	(0, _commonJsCommonJs.rotateScale2)({ list: [".ypy1-1", ".ypy1-2", ".ypy1-3"], offsetX: 0, offsetY: 0, to: { x: 80, y: 300 } });
 
-	(0, _commonJsPlayer_supportJs.startBasic)({ shiftY: 30 });
+	(0, _commonJsPlayer_supportJs.startBasic)({ shiftY: 130 });
 }
 
 },{"../../_common/js/common.js":1,"../../_common/js/player_support.js":3}]},{},[6])
