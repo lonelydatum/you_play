@@ -202,16 +202,16 @@ canvas, .text, .frame, .outline, img {
 }
 
 #banner {
-  width: 728px;
-  height: 90px;
+  width: 970px;
+  height: 250px;
 }
 
 #olg {
-  width: 117px;
-  height: 69px;
-  -webkit-transform: translate(-2px, 26px);
-  -ms-transform: translate(-2px, 26px);
-  transform: translate(-2px, 26px);
+  width: 158px;
+  height: 81px;
+  -webkit-transform: translate(-2px, 169px);
+  -ms-transform: translate(-2px, 169px);
+  transform: translate(-2px, 169px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -220,26 +220,33 @@ canvas, .text, .frame, .outline, img {
 }
 
 #legalBtn {
-  -webkit-transform: translate(650px, 0px);
-  -ms-transform: translate(650px, 0px);
-  transform: translate(650px, 0px);
+  -webkit-transform: translate(825px, 0px);
+  -ms-transform: translate(825px, 0px);
+  transform: translate(825px, 0px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
   perspective: 1000px;
   position: absolute;
-  width: 80px;
-}
-
-#legalContent {
-  padding: 0;
-  padding-left: 5px;
+  width: 140px;
+  height: 50px;
 }
 
 .ypy-all {
-  -webkit-transform: translate(230px, 20px) scale(1.03, 1.03);
-  -ms-transform: translate(230px, 20px) scale(1.03, 1.03);
-  transform: translate(230px, 20px) scale(1.03, 1.03);
+  -webkit-transform: translate(118px, 108px) scale(2.45, 2.45);
+  -ms-transform: translate(118px, 108px) scale(2.45, 2.45);
+  transform: translate(118px, 108px) scale(2.45, 2.45);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.ypy-all img {
+  -webkit-transform: translate(0px, 0px) scale(0.25, 0.25);
+  -ms-transform: translate(0px, 0px) scale(0.25, 0.25);
+  transform: translate(0px, 0px) scale(0.25, 0.25);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

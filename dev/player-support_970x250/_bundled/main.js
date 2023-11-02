@@ -119,9 +119,9 @@ function startBasic(_ref) {
 	tl.from(".ring1_2", { rotate: -rotate, duration: .8 }, "arcs-in+=0");
 	tl.from(".ring1_3", { rotate: rotate, duration: .6 }, "arcs-in+=0");
 
-	tl.from(".ypy1-1", { opacity: 0, rotate: -rotate, duration: .4 }, "arcs-in+=0.3");
-	tl.from(".ypy1-2", { opacity: 0, rotate: rotate, duration: .5 }, "arcs-in+=.5");
-	tl.from(".ypy1-3", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs-in+=.3");
+	tl.from(".ypy1-1", { opacity: 0, rotate: -60, duration: .4 }, "arcs-in+=0.3");
+	tl.from(".ypy1-2", { opacity: 0, rotate: 60, duration: .5 }, "arcs-in+=.5");
+	tl.from(".ypy1-3", { opacity: 0, rotate: -60, duration: .5 }, "arcs-in+=.3");
 
 	tl.add("shrink", "+=.3");
 	tl.to(".hero", { x: 0, y: 0, scale: .50, duration: .3 }, "shrink");
@@ -215,12 +215,12 @@ var _commonJsCommonJs = require('../../_common/js/common.js');
 start();
 function start() {
 
-	// 446px 502px
+	// 330 1020
 	var data = { list: [".ring1_1", ".ring1_2", ".ring1_3"],
-		offsetX: 498, offsetY: 35, to: { x: 458, y: 509 } };
+		offsetX: 700, offsetY: 210, to: { x: 1018, y: 1230 } };
 
 	(0, _commonJsCommonJs.rotateScale1)(data);
-	(0, _commonJsCommonJs.rotateScale2)({ list: [".ypy1-1", ".ypy1-2", ".ypy1-3"], offsetX: 0, offsetY: 0, to: { x: 486, y: 45 } });
+	(0, _commonJsCommonJs.rotateScale2)({ list: [".ypy1-1", ".ypy1-2", ".ypy1-3"], offsetX: 0, offsetY: 0, to: { x: 710, y: 190 } });
 
 	(0, _commonJsPlayer_supportJs.startBasic)({ shiftY: 0 });
 }

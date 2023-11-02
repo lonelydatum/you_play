@@ -5,14 +5,14 @@ start()
 function start(){
 
 	
-	// 446px 502px
+	// 330 1020
 	const data = {list:[".ring1_1", ".ring1_2", ".ring1_3"], 
-	offsetX:498, offsetY:35, to:{x:458, y:509}}
+	offsetX:700, offsetY:210, to:{x:1018, y:1230}}
 
 	
 	
 	rotateScale1(data)
-	rotateScale2({list:[".ypy1-1", ".ypy1-2", ".ypy1-3"], offsetX:0, offsetY:0, to:{x:486, y:45}})
+	rotateScale2({list:[".ypy1-1", ".ypy1-2", ".ypy1-3"], offsetX:0, offsetY:0, to:{x:710, y:190}})
 	
 	startBasic({shiftY:0})
 	
