@@ -202,16 +202,16 @@ canvas, .text, .frame, .outline, img {
 }
 
 #banner {
-  width: 728px;
-  height: 90px;
+  width: 320px;
+  height: 50px;
 }
 
 #olg {
-  width: 117px;
-  height: 69px;
-  -webkit-transform: translate(-2px, 26px);
-  -ms-transform: translate(-2px, 26px);
-  transform: translate(-2px, 26px);
+  width: 51px;
+  height: 47px;
+  -webkit-transform: translate(0px, 15px);
+  -ms-transform: translate(0px, 15px);
+  transform: translate(0px, 15px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -219,27 +219,27 @@ canvas, .text, .frame, .outline, img {
   position: absolute;
 }
 
+.legal {
+  display: none;
+}
+
 #legalBtn {
-  -webkit-transform: translate(650px, 0px);
-  -ms-transform: translate(650px, 0px);
-  transform: translate(650px, 0px);
+  -webkit-transform: translate(280px, -205px);
+  -ms-transform: translate(280px, -205px);
+  transform: translate(280px, -205px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
   perspective: 1000px;
   position: absolute;
   width: 80px;
-}
-
-#legalContent {
-  padding: 0;
-  padding-left: 5px;
+  display: none;
 }
 
 .ypy-all {
-  -webkit-transform: translate(230px, 20px) scale(1.03, 1.03);
-  -ms-transform: translate(230px, 20px) scale(1.03, 1.03);
-  transform: translate(230px, 20px) scale(1.03, 1.03);
+  -webkit-transform: translate(127px, 4px) scale(1, 1);
+  -ms-transform: translate(127px, 4px) scale(1, 1);
+  transform: translate(127px, 4px) scale(1, 1);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -365,7 +365,7 @@ canvas, .text, .frame, .outline, img {
 }
 
 #banner {
-  background-color: white;
+  background-color: #bfff00;
 }
 
 .frame2 {
