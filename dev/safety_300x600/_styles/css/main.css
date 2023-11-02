@@ -375,17 +375,6 @@ canvas, .text, .frame, .outline, img {
   background-color: #a56bff;
 }
 
-.devices {
-  -webkit-transform: translate(12px, -7px) scale(0.46, 0.46);
-  -ms-transform: translate(12px, -7px) scale(0.46, 0.46);
-  transform: translate(12px, -7px) scale(0.46, 0.46);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
 .bg {
   width: 300px;
   height: 600px;
