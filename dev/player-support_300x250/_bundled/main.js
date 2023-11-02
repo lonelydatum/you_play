@@ -54,7 +54,7 @@ function rotateScale1(data) {
 		var x = to.x;
 		var y = to.y;
 
-		tl.set(a, { transformOrigin: x + "px " + y + "px", x: offsetX - x, y: offsetY - y, scale: 1, rotate: 0 });
+		tl.set(a, { transformOrigin: x + "px " + y + "px", x: offsetX - x, y: offsetY - y, scale: 1, rotate: 10 });
 	});
 }
 

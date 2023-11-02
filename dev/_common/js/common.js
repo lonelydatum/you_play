@@ -43,7 +43,7 @@ function rotateScale1(data){
 	const {list, offsetX, offsetY, to} = data
 	list.map(a=>{
 		const {x, y } = to		
-		tl.set(a, {transformOrigin:`${x}px ${y}px`, x:offsetX-x, y:offsetY-y, scale:1, rotate:0})
+		tl.set(a, {transformOrigin:`${x}px ${y}px`, x:offsetX-x, y:offsetY-y, scale:1, rotate:10})
 	})
 
 

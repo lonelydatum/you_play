@@ -216,12 +216,12 @@ start();
 function start() {
 
 	var tl = (0, _commonJsCommonJs.init)();
-
+	// 280 48
 	var data = { list: [".ring1_1", ".ring1_2", ".ring1_3"],
-		offsetX: 72, offsetY: 466, to: { x: 422, y: 516 + 10 } };
+		offsetX: 143, offsetY: 480, to: { x: 422, y: 531 } };
 
 	(0, _commonJsCommonJs.rotateScale1)(data);
-	(0, _commonJsCommonJs.rotateScale2)({ list: [".ypy1-1", ".ypy1-2", ".ypy1-3"], offsetX: 0, offsetY: 0, to: { x: 80, y: 300 } });
+	(0, _commonJsCommonJs.rotateScale2)({ list: [".ypy1-1", ".ypy1-2", ".ypy1-3"], offsetX: 0, offsetY: 0, to: { x: 150, y: 300 } });
 
 	(0, _commonJsPlayer_supportJs.startBasic)({ shiftY: 130 });
 }
