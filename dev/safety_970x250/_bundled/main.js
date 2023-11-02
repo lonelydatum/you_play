@@ -42,10 +42,43 @@ function olg_ypy() {
 	return tl;
 }
 
+function rotateScale1(data) {
+
+	var tl = new TimelineMax();
+	var list = data.list;
+	var offsetX = data.offsetX;
+	var offsetY = data.offsetY;
+	var to = data.to;
+
+	list.map(function (a) {
+		var x = to.x;
+		var y = to.y;
+
+		tl.set(a, { transformOrigin: x + "px " + y + "px", x: offsetX - x, y: offsetY - y, scale: 1, rotate: 0 });
+	});
+}
+
+function rotateScale2(data) {
+	var tl = new TimelineMax();
+	var list = data.list;
+	var offsetX = data.offsetX;
+	var offsetY = data.offsetY;
+	var to = data.to;
+
+	list.map(function (a) {
+		var x = to.x;
+		var y = to.y;
+
+		tl.set(a, { transformOrigin: x * 2 + "px " + y * 2 + "px", x: -x + offsetX, y: -y + offsetY, scale: .5, rotate: 0 });
+	});
+}
+
 exports.init = init;
 exports.olg = _proline.olg;
 exports.bannerSize = bannerSize;
 exports.olg_ypy = olg_ypy;
+exports.rotateScale1 = rotateScale1;
+exports.rotateScale2 = rotateScale2;
 
 },{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":5}],2:[function(require,module,exports){
 "use strict";
