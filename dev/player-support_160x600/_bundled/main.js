@@ -119,9 +119,9 @@ function startBasic(_ref) {
 	tl.from(".ring1_2", { rotate: -rotate, duration: .8 }, "arcs-in+=0");
 	tl.from(".ring1_3", { rotate: rotate, duration: .6 }, "arcs-in+=0");
 
-	tl.from(".ypy1-1", { opacity: 0, rotate: -60, duration: .4 }, "arcs-in+=0.3");
-	tl.from(".ypy1-2", { opacity: 0, rotate: 60, duration: .5 }, "arcs-in+=.5");
-	tl.from(".ypy1-3", { opacity: 0, rotate: -60, duration: .5 }, "arcs-in+=.3");
+	tl.from(".ypy1-1", { opacity: 0, rotate: -60, duration: .5 }, "arcs-in+=0.2");
+	tl.from(".ypy1-2", { opacity: 0, rotate: -60, duration: .5 }, "arcs-in+=.5");
+	tl.from(".ypy1-3", { opacity: 0, rotate: -60, duration: .5 }, "arcs-in+=.7");
 
 	tl.add("shrink", "+=.3");
 	tl.to(".hero", { x: 0, y: 0, scale: .50, duration: .3 }, "shrink");
@@ -219,8 +219,8 @@ function start() {
 
 	var data = { list: [".ring1_1", ".ring1_2", ".ring1_3"],
 		offsetX: 72, offsetY: 466, to: { x: 422, y: 516 + 10 } };
-
 	(0, _commonJsCommonJs.rotateScale1)(data);
+
 	(0, _commonJsCommonJs.rotateScale2)({ list: [".ypy1-1", ".ypy1-2", ".ypy1-3"], offsetX: 0, offsetY: 0, to: { x: 80, y: 300 } });
 
 	(0, _commonJsPlayer_supportJs.startBasic)({ shiftY: 130 });

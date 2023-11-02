@@ -155,15 +155,15 @@ function rotateDo() {
 	var tl = new TimelineMax();
 	// return
 	tl.add("arcs-in");
-	tl.from(".ring1", { rotate: rotateRing, duration: 1.1 }, "arcs-in+=0");
-	tl.from(".ring2", { rotate: -rotateRing, duration: 1.1 }, "arcs-in+=0");
-	tl.from(".ring3", { rotate: rotateRing, duration: 1.1 }, "arcs-in+=0");
-	tl.from(".ring4", { rotate: -rotateRing, duration: 1.1 }, "arcs-in+=0");
-	tl.from(".ring5", { rotate: rotateRing, duration: 1.1 }, "arcs-in+=0");
+	tl.from(".ring1", { rotate: rotateRing, duration: .5 }, "arcs-in+=0");
+	tl.from(".ring2", { rotate: -rotateRing, duration: .7 }, "arcs-in+=0");
+	tl.from(".ring3", { rotate: rotateRing, duration: .6 }, "arcs-in+=0");
+	tl.from(".ring4", { rotate: -rotateRing, duration: .5 }, "arcs-in+=0");
+	tl.from(".ring5", { rotate: rotateRing, duration: .7 }, "arcs-in+=0");
 
-	tl.from(".ypy-1", { opacity: 0, rotate: rotateYPY, duration: 1.5 }, "arcs-in+=0");
-	tl.from(".ypy-2", { opacity: 0, rotate: -rotateYPY, duration: 1.5 }, "arcs-in+=0");
-	tl.from(".ypy-3", { opacity: 0, rotate: rotateYPY, duration: 1.5 }, "arcs-in+=0");
+	tl.from(".ypy-1", { opacity: 0, rotate: -rotateYPY, duration: .5 }, "arcs-in+=.2");
+	tl.from(".ypy-2", { opacity: 0, rotate: -rotateYPY, duration: .5 }, "arcs-in+=.5");
+	tl.from(".ypy-3", { opacity: 0, rotate: -rotateYPY, duration: .5 }, "arcs-in+=.7");
 
 	tl.from(".t1", { opacity: 0, duration: .5 }, "arcs-in+=1");
 	tl.to(".t1", { opacity: 0, duration: .3 }, "+=" + READ.t1);
@@ -225,44 +225,15 @@ var _commonJsCommonJs = require('../../_common/js/common.js');
 start();
 
 function start() {
+
 	var tl = (0, _commonJsCommonJs.init)();
 
-	var TRANSFORMORIGIN = { x: 265, y: 310 };
-	var rings = [{ id: ".ring1", offsetY: 0, offsetX: 125, scale: 1 }, { id: ".ring2", offsetY: 0, offsetX: 125, scale: 1 }, { id: ".ring3", offsetY: 0, offsetX: 125, scale: 1 }, { id: ".ring4", offsetY: 0, offsetX: 125, scale: 1 }, { id: ".ring5", offsetY: 0, offsetX: 125, scale: 1 }];
+	var data = { list: [".ring1", ".ring2", ".ring3", ".ring4", ".ring5"],
+		offsetX: 125, offsetY: 310, to: { x: 265, y: 310 } };
+	(0, _commonJsCommonJs.rotateScale1)(data);
 
-	function transformOrigin(obj) {
-		// const scale = 2
+	(0, _commonJsCommonJs.rotateScale2)({ list: [".ypy-1", ".ypy-2", ".ypy-3"], offsetX: 0, offsetY: 0, to: { x: 150, y: 300 } });
 
-		var _ref = obj.to || TRANSFORMORIGIN;
-
-		var x = _ref.x;
-		var y = _ref.y;
-
-		var offsetX = obj.offsetX || 0;
-		var offsetY = obj.offsetY || 0;
-		console.log(offsetX - x);
-		tl.set(obj.id, { transformOrigin: x + 'px ' + y + 'px', x: -x + offsetX, y: 0, scale: 1, rotate: 0 });
-	}
-
-	rings.map(function (a) {
-		return transformOrigin(a);
-	});
-
-	// const {x, y } = {x:30, y:265}
-	// const offsetX =  0
-	// const offsetY = 0
-	// tl.set(".ypy-1", {transformOrigin:`${x*2}px ${y*2}px`, x:-x+offsetX, y:-y+offsetY, scale:.5, rotate:0})
-	// tl.set(".ypy-2", {transformOrigin:`${x*2}px ${y*2}px`, x:-x+offsetX, y:-y+offsetY, scale:.5, rotate:0})
-	// tl.set(".ypy-3", {transformOrigin:`${x*2}px ${y*2}px`, x:-x+offsetX, y:-y+offsetY, scale:.5, rotate:0})
-
-	var data = {
-		list: [".ypy-1", ".ypy-2", ".ypy-3"],
-		offsetY: 0, offsetX: 0, to: { x: 150, y: 300 }
-	};
-
-	(0, _commonJsVarietyJs.rotateSetRetina)(data);
-
-	// return
 	tl.add((0, _commonJsVarietyJs.rotateDo)(180, 30));
 }
 

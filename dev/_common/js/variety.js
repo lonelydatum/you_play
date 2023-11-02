@@ -32,15 +32,15 @@ function rotateDo(rotateRing=180, rotateYPY=120){
 	const tl = new TimelineMax()
 	// return
 	tl.add("arcs-in")
-	tl.from(".ring1", {rotate:rotateRing, duration:1.1}, "arcs-in+=0")
-	tl.from(".ring2", {rotate:-rotateRing, duration:1.1}, "arcs-in+=0")
-	tl.from(".ring3", {rotate:rotateRing, duration:1.1}, "arcs-in+=0")
-	tl.from(".ring4", {rotate:-rotateRing, duration:1.1}, "arcs-in+=0")
-	tl.from(".ring5", {rotate:rotateRing, duration:1.1}, "arcs-in+=0")
+	tl.from(".ring1", {rotate:rotateRing, duration:.5}, "arcs-in+=0")
+	tl.from(".ring2", {rotate:-rotateRing, duration:.7}, "arcs-in+=0")
+	tl.from(".ring3", {rotate:rotateRing, duration:.6}, "arcs-in+=0")
+	tl.from(".ring4", {rotate:-rotateRing, duration:.5}, "arcs-in+=0")
+	tl.from(".ring5", {rotate:rotateRing, duration:.7}, "arcs-in+=0")
 
-	tl.from(".ypy-1", {opacity:0, rotate:rotateYPY, duration:1.5}, "arcs-in+=0")
-	tl.from(".ypy-2", {opacity:0, rotate:-rotateYPY, duration:1.5}, "arcs-in+=0")
-	tl.from(".ypy-3", {opacity:0, rotate:rotateYPY, duration:1.5}, "arcs-in+=0")
+	tl.from(".ypy-1", {opacity:0, rotate:-rotateYPY, duration:.5}, "arcs-in+=.2")
+	tl.from(".ypy-2", {opacity:0, rotate:-rotateYPY, duration:.5}, "arcs-in+=.5")
+	tl.from(".ypy-3", {opacity:0, rotate:-rotateYPY, duration:.5}, "arcs-in+=.7")
 
 	tl.from(".t1", {opacity:0, duration:.5}, "arcs-in+=1")
 	tl.to(".t1", {opacity:0, duration:.3}, `+=${READ.t1}`)

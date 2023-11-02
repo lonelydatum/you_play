@@ -24,9 +24,9 @@ function startBasic({shiftY}){
 	tl.from(".ring1_2", {rotate:-rotate, duration:.8}, "arcs-in+=0")
 	tl.from(".ring1_3", {rotate:rotate, duration:.6}, "arcs-in+=0")
 	
-	tl.from(".ypy1-1", {opacity:0, rotate:-60, duration:.4}, "arcs-in+=0.3")
-	tl.from(".ypy1-2", {opacity:0, rotate:60, duration:.5}, "arcs-in+=.5")
-	tl.from(".ypy1-3", {opacity:0, rotate:-60, duration:.5}, "arcs-in+=.3")
+	tl.from(".ypy1-1", {opacity:0, rotate:-60, duration:.5}, "arcs-in+=0.2")
+	tl.from(".ypy1-2", {opacity:0, rotate:-60, duration:.5}, "arcs-in+=.5")
+	tl.from(".ypy1-3", {opacity:0, rotate:-60, duration:.5}, "arcs-in+=.7")
 	
 	tl.add("shrink", "+=.3")
 	tl.to(".hero", {x:0, y:0, scale:.50, duration:.3}, "shrink")

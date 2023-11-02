@@ -1,5 +1,5 @@
-import {READ, rotateSetRetina, rotateDo} from '../../_common/js/variety.js'
-import {init, olg_ypy} from '../../_common/js/common.js'
+import {READ, rotateDo} from '../../_common/js/variety.js'
+import {init,rotateScale2, olg_ypy} from '../../_common/js/common.js'
 
 start()
 
@@ -13,7 +13,7 @@ function start(){
 		offsetY:-22, offsetX:0, to:{x:158, y:154}
 	}
 
-	rotateSetRetina(data)
+	rotateScale2(data)
 
 
 
