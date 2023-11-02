@@ -189,6 +189,7 @@ function initYPY() {
 }
 function ypyScroll() {
 	var tl = new TimelineMax();
+	console.log('sldkfjskdlfj');
 	// tl.set(".ypy-all", {opacity:0})
 	tl.add("spin");
 	for (var i = 1; i < 11; i++) {

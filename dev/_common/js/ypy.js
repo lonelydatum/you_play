@@ -19,6 +19,7 @@ function start(heroScale){
 	// return
 	tl.add("bars")
 	
+	
 	tl.from(".frame1 .top.b2", {y:-bannerSize.h, duration:.5}, "bars+=.3")
 	tl.from(".frame1 .top.b4", {y:-bannerSize.h, duration:.5}, "bars+=.6")
 	tl.from(".frame1 .top.b5", {y:-bannerSize.h, duration:.5}, "bars+=.9")

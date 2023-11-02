@@ -7,6 +7,7 @@ function initYPY(){
 }
 function ypyScroll(){
 	const tl = new TimelineMax()
+	console.log('sldkfjskdlfj');
 // tl.set(".ypy-all", {opacity:0})
 	tl.add("spin")
 	for(let i=1;i<11;i++){
