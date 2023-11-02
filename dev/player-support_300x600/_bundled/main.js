@@ -54,7 +54,7 @@ function rotateScale1(data) {
 		var x = to.x;
 		var y = to.y;
 
-		tl.set(a, { transformOrigin: x + "px " + y + "px", x: offsetX - x, y: offsetY - y, scale: 1, rotate: 10 });
+		tl.set(a, { transformOrigin: x + "px " + y + "px", x: offsetX - x, y: offsetY - y, scale: 1, rotate: 0 });
 	});
 }
 
@@ -112,21 +112,21 @@ function startBasic(_ref) {
 	var shiftY = _ref.shiftY;
 
 	var tl = (0, _commonJs.init)();
-
+	// return
 	var rotate = 180;
 	tl.add("arcs-in");
-	tl.from(".ring1_1", { rotate: rotate, duration: 1 }, "arcs-in+=0");
-	tl.from(".ring1_2", { rotate: -rotate, duration: 1 }, "arcs-in+=0.3");
-	tl.from(".ring1_3", { rotate: rotate, duration: 1.3 }, "arcs-in+=0");
+	tl.from(".ring1_1", { rotate: rotate, duration: .5 }, "arcs-in+=0");
+	tl.from(".ring1_2", { rotate: -rotate, duration: .8 }, "arcs-in+=0");
+	tl.from(".ring1_3", { rotate: rotate, duration: .6 }, "arcs-in+=0");
 
-	tl.from(".ypy1-1", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs-in+=0.6");
-	tl.from(".ypy1-2", { opacity: 0, rotate: rotate, duration: .5 }, "arcs-in+=.8");
-	tl.from(".ypy1-3", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs-in+=1");
+	tl.from(".ypy1-1", { opacity: 0, rotate: -rotate, duration: .4 }, "arcs-in+=0.3");
+	tl.from(".ypy1-2", { opacity: 0, rotate: rotate, duration: .5 }, "arcs-in+=.5");
+	tl.from(".ypy1-3", { opacity: 0, rotate: -rotate, duration: .5 }, "arcs-in+=.3");
 
-	tl.add("shrink", "+=.6");
-	tl.to(".hero", { x: 0, y: 0, scale: .50, duration: .5 }, "shrink");
-	tl.from(".footer-bar", { y: _commonJs.bannerSize.h, duration: .5 }, "shrink");
-	tl.from(".t1", { y: 250, duration: .5 }, "shrink");
+	tl.add("shrink", "+=.3");
+	tl.to(".hero", { x: 0, y: 0, scale: .50, duration: .3 }, "shrink");
+	tl.from(".footer-bar", { y: _commonJs.bannerSize.h, duration: .3 }, "shrink");
+	tl.from(".t1", { y: 250, duration: .4 }, "shrink");
 
 	tl.to(".ring", { y: "-=" + shiftY, duration: .4 }, "shrink");
 
