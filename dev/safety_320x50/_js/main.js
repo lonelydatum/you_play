@@ -26,7 +26,7 @@ function start({coins=8, skew, y}){
 	tl.from([".t2", ".brand-logo"], {opacity:0, duration:.3})
 
 	tl.add("bye", `+=${READ.t2}`)
-	tl.to([".t2", ".ypy-text", ".brand-logo"], {opacity:0, duration:.3}, "bye")
+	tl.to([".t2", ".ypy-text"], {opacity:0, duration:.3}, "bye")
 
 	tl.add("f2")
 	tl.to(".bg", {y:0, x:0, duration:.4}, `f2`)
