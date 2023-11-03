@@ -17,13 +17,14 @@
 
 
 .legal{
-	display: none;
+	// display: none;
 }
 
 #legalBtn{	
-	@include pos(280, -205);	
-	width: 80px;
-	display: none;
+	@include pos(280, 0);	
+	width: 40px;
+
+	// display: none;
 	// opacity: 1 !important;
 }
 
@@ -32,4 +33,13 @@
 	// opacity: ;
 	@include pos-scale(127, 4, 1);
 	
+}
+
+#legalContent{
+	font-size: 8px;
+	line-height: 8px;
+	padding:2px;
+	br{
+		display: none;
+	}
 }
