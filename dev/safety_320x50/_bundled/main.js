@@ -236,6 +236,8 @@ var _commonJsSafetyJs = require('../../_common/js/safety.js');
 
 start({ coins: 6, skew: 40, y: 7 });
 
+document.getElementById("legalContent").innerHTML = "Must be 19 years of age or older and a resident of Ontario, located in the province to play online casino games. Games and screens may not appear as shown. Odds vary by game. Terms and conditions apply.\n\n*Voted most trusted Online Casino by Ontario shoppers based on the 2023 Brandspark® Canadian Trust Study.";
+
 function start(_ref) {
 	var _ref$coins = _ref.coins;
 	var coins = _ref$coins === undefined ? 8 : _ref$coins;
